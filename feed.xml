@@ -5,7 +5,7 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     <link>https://laurieboyes.github.io/</link>
     <description>knitting javascript developer software web</description>
-    <pubDate>Sun, 24 Dec 2017 23:30:09 +0000</pubDate>
+    <pubDate>Mon, 25 Dec 2017 00:00:32 +0000</pubDate>
     
       <item>
         <title>Constructive sloppiness</title>
@@ -100,7 +100,7 @@
 
 &lt;p&gt;Here I’ve detailed a selection of the changes I made to make it so.&lt;/p&gt;
 
-&lt;p&gt;###Enhance!&lt;/p&gt;
+&lt;h3 id=&quot;enhance&quot;&gt;Enhance!&lt;/h3&gt;
 
 &lt;p&gt;First thing I did was stick in a viewport meta tag:&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&amp;gt;
@@ -118,7 +118,7 @@
 
 &lt;p&gt;There’s plenty more info about &lt;a href=&quot;https://developer.mozilla.org/en/docs/Mozilla/Mobile/Viewport_meta_tag&quot;&gt;viewport meta tags&lt;/a&gt; on MDN.&lt;/p&gt;
 
-&lt;p&gt;###Fat stacks&lt;/p&gt;
+&lt;h3 id=&quot;fat-stacks&quot;&gt;Fat stacks&lt;/h3&gt;
 
 &lt;p&gt;Most of the pages of the site have a sidebar with some jazzy links to other relevant pages. With our limited space on mobile devices, we needed the body content to occupy the full page width, and so the best thing for these links was for them to stack at the bottom.&lt;/p&gt;
 
@@ -165,7 +165,7 @@
 
 &lt;p&gt;Hooray.&lt;/p&gt;
 
-&lt;p&gt;###Navelucidation&lt;/p&gt;
+&lt;h3 id=&quot;navelucidation&quot;&gt;Navelucidation&lt;/h3&gt;
 
 &lt;p&gt;So the existing navigation works great on desktop. It’s your pretty standard styled list of links, some of which have submenus with additional links that reveal themselves on hover.&lt;/p&gt;
 
@@ -177,13 +177,13 @@
 
 &lt;p&gt;So, I did a quick google for mobile navigation patterns and found one that would solve these problems (and that I fancied implementing).&lt;/p&gt;
 
-&lt;p&gt;####Step 1 - mobile first&lt;/p&gt;
+&lt;h4 id=&quot;step-1---mobile-first&quot;&gt;Step 1 - mobile first&lt;/h4&gt;
 
 &lt;p&gt;First I set up the list of top-level-menu links and styled it up similarly to the existing menu, the main exception being that each link would stack vertically and occupy 100% of the page width.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/menu-stacked-framed.png#mobile-framed&quot; alt=&quot;menu squished&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;####Step 2 - digging deep&lt;/p&gt;
+&lt;h4 id=&quot;step-2---digging-deep&quot;&gt;Step 2 - digging deep&lt;/h4&gt;
 
 &lt;p&gt;I set up the sub nav in a similar way, except within the main links. I made an open/close toggle button that would change the height property of the top level link, effectively hiding and showing the submenu.&lt;/p&gt;
 
@@ -193,23 +193,23 @@
 
 &lt;p&gt;Upsettingly, transitioning from fixed height to auto height doesn’t work with CSS transitions, so for a neat animation, you need to know exactly how high the menu should change to on expand. This isn’t an insurmountable problem however, as we can work it out with a bit of javascript.&lt;/p&gt;
 
-&lt;p&gt;####Step 3 - the big reveal&lt;/p&gt;
+&lt;h4 id=&quot;step-3---the-big-reveal&quot;&gt;Step 3 - the big reveal&lt;/h4&gt;
 
 &lt;p&gt;To save valuable mobile-device screen real estate, I collapsed the menu into an all-consuming ‘menu’ item, having it closed by default.  It was also important to animate this open and closed, which meant a bit more height querying, but this is no big deal. The menu is closed by default, meaning the user has to do less scrolling before getting to the content.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/menu-expanding-whole-framed.gif#mobile-framed&quot; alt=&quot;menu squished&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;####Step 4 - you are here&lt;/p&gt;
+&lt;h4 id=&quot;step-4---you-are-here&quot;&gt;Step 4 - you are here&lt;/h4&gt;
 
 &lt;p&gt;I don’t think navigation tools are all that useful if they can’t tell you where you are in addition to where you can go. I made it so that on page load, the current menu item is highlighted to waypoint the current page, and, by necessity, that if the current page is within a submenu, that submenu is expanded on page load.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/menu-highlight-framed.png#mobile-framed&quot; alt=&quot;menu highlighted&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;####Show me the codez&lt;/p&gt;
+&lt;h4 id=&quot;show-me-the-codez&quot;&gt;Show me the codez&lt;/h4&gt;
 
 &lt;p&gt;Here’s the code and a demo of the nav in a nice neat jsbin: http://jsbin.com/nidiyay/edit?html,css,js,output&lt;/p&gt;
 
-&lt;p&gt;###That’ll do it&lt;/p&gt;
+&lt;h3 id=&quot;thatll-do-it&quot;&gt;That’ll do it&lt;/h3&gt;
 
 &lt;p&gt;As always, there are still improvements that can be made, but for the interim I’m pretty pleased with it! Check it out on your own mobile-or-otherwise device at &lt;a href=&quot;http://www.able-governance.co.uk/&quot;&gt;able-governance.co.uk&lt;/a&gt;, and, if you fancy it, maybe put in a query for pension scheme advice or something while you’re there.&lt;/p&gt;
 
@@ -240,16 +240,16 @@
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/beneath-this-cool-calm/beneath-this-cool-calm.gif&quot; alt=&quot;gameplay gif&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;#####Play the game: &lt;a href=&quot;http://static.lrnk.co.uk/ludumdare29/&quot;&gt;Beneath this cool, calm exterior&lt;/a&gt;
-&lt;em&gt;Move: wasd&lt;/em&gt;&lt;br /&gt; 
+&lt;h5 id=&quot;play-the-game-beneath-this-cool-calm-exterior&quot;&gt;Play the game: &lt;a href=&quot;http://static.lrnk.co.uk/ludumdare29/&quot;&gt;Beneath this cool, calm exterior&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;em&gt;Move: wasd&lt;/em&gt;&lt;br /&gt; 
 &lt;em&gt;Shoot: arrow keys&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;Start, next level: space bar&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;#####View the code: &lt;a href=&quot;https://github.com/laurieboyes/beneath-this-cool-calm-exterior&quot;&gt;github.com/laurieboyes/beneath-this-cool-calm-exterior&lt;/a&gt;
-&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h5 id=&quot;view-the-code-githubcomlaurieboyesbeneath-this-cool-calm-exterior&quot;&gt;View the code: &lt;a href=&quot;https://github.com/laurieboyes/beneath-this-cool-calm-exterior&quot;&gt;github.com/laurieboyes/beneath-this-cool-calm-exterior&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
-&lt;p&gt;#####View the competition entry: &lt;a href=&quot;http://ludumdare.com/compo/ludum-dare-29/?action=preview&amp;amp;uid=6545&quot;&gt;Ludum Dare&lt;/a&gt;
-&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h5 id=&quot;view-the-competition-entry-ludum-dare&quot;&gt;View the competition entry: &lt;a href=&quot;http://ludumdare.com/compo/ludum-dare-29/?action=preview&amp;amp;uid=6545&quot;&gt;Ludum Dare&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;Fundamentally, it’s a very basic shooter game. The enemies are my insecurities, and some of them spout fun exaggerations on my own internal monologue. When a player collides with an insecurity, they are presented with a picture of my face, moving through an array of increasingly distressed expressions.&lt;/p&gt;
 
@@ -257,14 +257,14 @@
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/beneath-this-cool-calm/results.png&quot; alt=&quot;results&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;###The making of
-The heavy lifting in the code was done by a 2D game library called &lt;a href=&quot;http://melonjs.org/&quot;&gt;melonJS&lt;/a&gt;. It was very nice to work with and I’d use it again.&lt;/p&gt;
+&lt;h3 id=&quot;the-making-of&quot;&gt;The making of&lt;/h3&gt;
+&lt;p&gt;The heavy lifting in the code was done by a 2D game library called &lt;a href=&quot;http://melonjs.org/&quot;&gt;melonJS&lt;/a&gt;. It was very nice to work with and I’d use it again.&lt;/p&gt;
 
-&lt;p&gt;####Bom bom bom bom&lt;/p&gt;
+&lt;h4 id=&quot;bom-bom-bom-bom&quot;&gt;Bom bom bom bom&lt;/h4&gt;
 
 &lt;p&gt;The rules of the competition state that all assets (e.g. graphics and sound) must be created within the 48-hour window. I did all the sound effects on &lt;a href=&quot;http://www.bfxr.net/&quot;&gt;bfxr&lt;/a&gt;, and the music with my own mouth. Sadly, I didn’t get around to putting in a mute button for the music, but I think the sense of agitation it evokes after about 8 seconds of listening really contributes to the overall feel.&lt;/p&gt;
 
-&lt;p&gt;####Making it better&lt;/p&gt;
+&lt;h4 id=&quot;making-it-better&quot;&gt;Making it better&lt;/h4&gt;
 
 &lt;p&gt;My flatmate, true to form, looked up from his own entry to peer over my shoulder and then put me onto a ridiculously good presentation by &lt;a href=&quot;http://www.vlambeer.com/&quot;&gt;Vlambeer&lt;/a&gt; about improving the ‘game feel’ (although that’s a term they contest).&lt;/p&gt;
 
@@ -295,7 +295,7 @@ The heavy lifting in the code was done by a 2D game library called &lt;a href=&q
         <title>Mucking about with image data in JavaScript</title>
         <link>/2016/07/24/mucking-about-with-image-data-in-javascript.html</link>
         <guid isPermaLink="true">/2016/07/24/mucking-about-with-image-data-in-javascript.html</guid>
-        <description>&lt;p&gt;Earlier this year I wrote &lt;em&gt;ScarfParty&lt;/em&gt;, a knitting companion that centred around a dynamic pattern display that changed along with the knitter’s progress. The pattern information was loaded in from a small black and white image. If you’re interested, you can &lt;a href=&quot;http://blog.lrnk.co.uk/tag/the-christmas-fam-scarf/&quot;&gt;learn more about my adventures with scarves&lt;/a&gt;.&lt;/p&gt;
+        <description>&lt;p&gt;Earlier this year I wrote &lt;em&gt;ScarfParty&lt;/em&gt;, a knitting companion that centred around a dynamic pattern display that changed along with the knitter’s progress. The pattern information was loaded in from a small black and white image. If you’re interested, you can &lt;a href=&quot;/tags.html#the-christmas-fam-scarf&quot;&gt;learn more about my adventures with scarves&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/playing-with-image-data/image-mucking.png&quot; alt=&quot;image mucking&quot; /&gt;&lt;/p&gt;
 
@@ -305,7 +305,7 @@ The heavy lifting in the code was done by a 2D game library called &lt;a href=&q
 
 &lt;p&gt;&lt;em&gt;And the tests:&lt;/em&gt; &lt;a href=&quot;https://github.com/laurieboyes/scarfparty-v2/blob/master/test/tests/pattern.spec.js&quot;&gt;github.com/laurieboyes/scarfparty-v2/blob/master/test/tests/pattern.spec.js&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;####Reading the image&lt;/p&gt;
+&lt;h4 id=&quot;reading-the-image&quot;&gt;Reading the image&lt;/h4&gt;
 
 &lt;p&gt;Problem number one was to get the information out of the image with JavaScript.&lt;/p&gt;
 
@@ -348,8 +348,8 @@ For example, when passed this &lt;em&gt;very&lt;/em&gt; small image 3 x 2 pixels
 &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;
-####Translating the image data&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h4 id=&quot;translating-the-image-data&quot;&gt;Translating the image data&lt;/h4&gt;
 
 &lt;p&gt;I needed to turn this flat array of information into something meaningful and easy to use to recreate the image. All I really needed to know was which pixels were black and which were white, so I wrote this small function to take the results of the above and turn them into a flat array of 1s and 0s.&lt;/p&gt;
 
@@ -386,7 +386,7 @@ When passed the array resulting from the &lt;code class=&quot;highlighter-rouge&
 
 &lt;p&gt;And there we have it! We now have an easy to read array of the on/off state of each pixel, grouped into rows, which we can use to redisplay the image in any way we choose. In my case this basically involved looping over the nested arrays and drawing squares on a canvas with the appropriate position and colour.&lt;/p&gt;
 
-&lt;p&gt;####Controversial choices&lt;/p&gt;
+&lt;h4 id=&quot;controversial-choices&quot;&gt;Controversial choices&lt;/h4&gt;
 
 &lt;p&gt;My flatmate, peering over my shoulder, has just pointed out that returning 1s and 0s rather than booleans is a bit of a code smell. My best guess as to why I didn’t think of this myself at the time is that doing it this way made my test cases look nicer:&lt;/p&gt;
 
@@ -417,25 +417,25 @@ When passed the array resulting from the &lt;code class=&quot;highlighter-rouge&
 
 &lt;p&gt;This third and final post showcases the app I made to solve a crucial problem in the completion of the scarf.&lt;/p&gt;
 
-&lt;p&gt;If you’re unsure of what a &lt;em&gt;pixel pattern&lt;/em&gt; is, see &lt;a href=&quot;http://blog.lrnk.co.uk/the-christmas-fam-scarf-part-1&quot;&gt;Part one: The intro and the pattern&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you’re unsure of what a &lt;em&gt;pixel pattern&lt;/em&gt; is, see &lt;a href=&quot;/2015/12/24/the-christmas-fam-scarf-part-1&quot;&gt;Part one: The intro and the pattern&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;If you’re pretty much on-board with the concept of knitting your own complex, non-repeating scarf design but aren’t sure what problem I’m trying to solve here, see &lt;a href=&quot;http://blog.lrnk.co.uk/the-christmas-fam-scarf-part-2&quot;&gt;Part two: The actual knitting&lt;/a&gt;. The general gist is that once these pixel patterns reach a certain level of complexity they do become very hard to follow, which is exactly why I made this:&lt;/p&gt;
+&lt;p&gt;If you’re pretty much on-board with the concept of knitting your own complex, non-repeating scarf design but aren’t sure what problem I’m trying to solve here, see &lt;a href=&quot;/2016/01/31/the-christmas-fam-scarf-part-2&quot;&gt;Part two: The actual knitting&lt;/a&gt;. The general gist is that once these pixel patterns reach a certain level of complexity they do become very hard to follow, which is exactly why I made this:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/scarf-party-demo.gif&quot; alt=&quot;scarf party demo&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;#####Use the app for your own pixel pattern: &lt;a href=&quot;http://static.lrnk.co.uk/scarfparty2/&quot;&gt;ScarfParty&lt;/a&gt;
-&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h5 id=&quot;use-the-app-for-your-own-pixel-pattern-scarfparty&quot;&gt;Use the app for your own pixel pattern: &lt;a href=&quot;http://static.lrnk.co.uk/scarfparty2/&quot;&gt;ScarfParty&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
-&lt;p&gt;#####Check out the code: &lt;a href=&quot;https://github.com/laurieboyes/scarfparty-v2&quot;&gt;github.com/laurieboyes/scarfparty-v2&lt;/a&gt;
-&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h5 id=&quot;check-out-the-code-githubcomlaurieboyesscarfparty-v2&quot;&gt;Check out the code: &lt;a href=&quot;https://github.com/laurieboyes/scarfparty-v2&quot;&gt;github.com/laurieboyes/scarfparty-v2&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
-&lt;p&gt;The grid is a dynamic display of the pattern that updates along with your progress. Each square in the grid represents a single stitch. Regardless of your position in the scarf or what side you’re on, the pattern is always read from right to left, and the stitches are always displayed in the colours you need to knit. This is achieved by flipping the colours and design at the end of each row, presenting the pattern similarly to in the demonstration at the end of &lt;a href=&quot;http://blog.lrnk.co.uk/the-christmas-fam-scarf-part-2&quot;&gt;part 2 of this series&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The grid is a dynamic display of the pattern that updates along with your progress. Each square in the grid represents a single stitch. Regardless of your position in the scarf or what side you’re on, the pattern is always read from right to left, and the stitches are always displayed in the colours you need to knit. This is achieved by flipping the colours and design at the end of each row, presenting the pattern similarly to in the demonstration at the end of &lt;a href=&quot;/2016/01/31/the-christmas-fam-scarf-part-2&quot;&gt;part 2 of this series&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;This leaves the knitter with ample mental bandwidth remaining to siphon off into conversation or podcast consumption, and frees them from the anguish of constantly feeling the need to recount theirs rows and stitches. Phew!&lt;/p&gt;
 
-&lt;p&gt;###Special features&lt;/p&gt;
+&lt;h3 id=&quot;special-features&quot;&gt;Special features&lt;/h3&gt;
 
-&lt;p&gt;The pattern is generated directly from a small black-and-white image, just like the one we end up with as a result of following through the pattern creation guide in &lt;a href=&quot;http://blog.lrnk.co.uk/the-christmas-fam-scarf-part-1&quot;&gt;part 1&lt;/a&gt;. This means we can swap in new versions of our pattern effortlessly (for the bits we haven’t already knitted!) as we work out the finer points of our project. Beat that, graph paper.&lt;/p&gt;
+&lt;p&gt;The pattern is generated directly from a small black-and-white image, just like the one we end up with as a result of following through the pattern creation guide in &lt;a href=&quot;/2015/12/24/the-christmas-fam-scarf-part-1&quot;&gt;part 1&lt;/a&gt;. This means we can swap in new versions of our pattern effortlessly (for the bits we haven’t already knitted!) as we work out the finer points of our project. Beat that, graph paper.&lt;/p&gt;
 
 &lt;p&gt;A number of special features are baked in:&lt;/p&gt;
 
@@ -484,13 +484,13 @@ When passed the array resulting from the &lt;code class=&quot;highlighter-rouge&
         <guid isPermaLink="true">/2016/01/31/the-christmas-fam-scarf-part-2.html</guid>
         <description>&lt;p&gt;Welcome to part two of the tale of the Christmas fam scarf. The blog can be read in any order with no detriment to enjoyment. Here’s a sum-up of each.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://blog.lrnk.co.uk/the-christmas-fam-scarf-part-1&quot;&gt;Part one: The intro and the pattern&lt;/a&gt;. Describes how the pixel pattern was created, taking through from photograph all the way to pixelated blob.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2015/12/24/the-christmas-fam-scarf-part-1&quot;&gt;Part one: The intro and the pattern&lt;/a&gt;. Describes how the pixel pattern was created, taking through from photograph all the way to pixelated blob.&lt;/p&gt;
 
 &lt;p&gt;You’re reading &lt;em&gt;Part two: The actual knitting&lt;/em&gt;. This will be an account of what went into the actual knitting of the scarf, referencing some super helpful tutorials and putting them in the context of working from a pixel pattern.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://blog.lrnk.co.uk/the-christmas-fam-scarf-part-3&quot;&gt;Part three: ScarfParty - your solution to the pixel pattern problem&lt;/a&gt; will gleefully describe the pattern tracking app I found I had to make to follow the pixel pattern for my much more complex fam faces.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2016/07/18/the-christmas-fam-scarf-part-3&quot;&gt;Part three: ScarfParty - your solution to the pixel pattern problem&lt;/a&gt; will gleefully describe the pattern tracking app I found I had to make to follow the pixel pattern for my much more complex fam faces.&lt;/p&gt;
 
-&lt;p&gt;###The materials&lt;/p&gt;
+&lt;h3 id=&quot;the-materials&quot;&gt;The materials&lt;/h3&gt;
 
 &lt;p&gt;For no reason other than that I had some left over from a previous project and had knitted my test duck in it, I used &lt;strong&gt;aran/worsted weight wool&lt;/strong&gt; for my fam scarf. And, for no reason other than that my mum had lent me hers for another previous project, I used &lt;strong&gt;4.5mm aluminium needles&lt;/strong&gt;.&lt;/p&gt;
 
@@ -503,29 +503,29 @@ The aforementioned test duck.&lt;/p&gt;
 
 &lt;p&gt;Due to the unscientific nature of my choices in this area, I’m not going to be very good at convincing you whether you should follow my example or learn from its errors. I &lt;em&gt;will&lt;/em&gt; tell you that my scarf weighs 366g and that it’s nice and thick and warm, which would be great &lt;a href=&quot;http://www.bbc.co.uk/news/uk-35119311&quot;&gt;if we were ever going to have a winter in the UK again&lt;/a&gt;. It’s about 7mm thick when it’s not being stretched. Personally, I think it turned out great.&lt;/p&gt;
 
-&lt;p&gt;###The techniques&lt;/p&gt;
+&lt;h3 id=&quot;the-techniques&quot;&gt;The techniques&lt;/h3&gt;
 
 &lt;p&gt;This blog assumes a bit of experience with knitting, or at least familiarity with the concepts of the knit and purl stitches. Not loads though, this is only really my fourth vaguely serviceable project.&lt;/p&gt;
 
 &lt;p&gt;The technique I used to make the scarf lie flat and look scarfy on both sides is called &lt;strong&gt;double knitting&lt;/strong&gt; or &lt;strong&gt;double-sided knitting&lt;/strong&gt;. This basically involves knitting the two sides at the same time, knitting together the edges and borrowing colour from the other side for the design.&lt;/p&gt;
 
-&lt;p&gt;####Recommended reading
-I had a go at making a video tutorial myself and it was just so awful. Happily, youTube is positively bustling with eager knitting tutors, and &lt;a href=&quot;https://www.youtube.com/watch?v=JroP84tUmJA&quot;&gt;this video by JoannesWeb&lt;/a&gt; absolutely smashes it. I actually learnt from a mishmash of various other videos and articles and only came across this one after my scarf was finished, but I think it’s the best video I’ve found. Highly recommended if you’re gearing up for your own double-sided scarf project.&lt;/p&gt;
+&lt;h4 id=&quot;recommended-reading&quot;&gt;Recommended reading&lt;/h4&gt;
+&lt;p&gt;I had a go at making a video tutorial myself and it was just so awful. Happily, youTube is positively bustling with eager knitting tutors, and &lt;a href=&quot;https://www.youtube.com/watch?v=JroP84tUmJA&quot;&gt;this video by JoannesWeb&lt;/a&gt; absolutely smashes it. I actually learnt from a mishmash of various other videos and articles and only came across this one after my scarf was finished, but I think it’s the best video I’ve found. Highly recommended if you’re gearing up for your own double-sided scarf project.&lt;/p&gt;
 
 &lt;p&gt;From &lt;a href=&quot;https://youtu.be/JroP84tUmJA?t=9s&quot;&gt;0:09&lt;/a&gt; to 0:54 she does a very nice cast on.
 From &lt;a href=&quot;https://youtu.be/JroP84tUmJA?t=56s&quot;&gt;0:56&lt;/a&gt; to 6:24 she demonstrates how to do the first three plain rows.
 At &lt;a href=&quot;https://youtu.be/JroP84tUmJA?t=8m48s&quot;&gt;8:48&lt;/a&gt; she shows how to bring in colour from the other side for creating designs.&lt;/p&gt;
 
-&lt;p&gt;####Where I diverge/expand
-There are a few things missing from the above video or things I did differently in the fam scarf that I wouldn’t want you to miss out on.&lt;/p&gt;
+&lt;h4 id=&quot;where-i-divergeexpand&quot;&gt;Where I diverge/expand&lt;/h4&gt;
+&lt;p&gt;There are a few things missing from the above video or things I did differently in the fam scarf that I wouldn’t want you to miss out on.&lt;/p&gt;
 
-&lt;p&gt;#####Casting on for your pixel pattern
-We want to cast on &lt;strong&gt;two more stitches than the width of our pattern&lt;/strong&gt;, giving us enough stitches to fulfil the pattern itself, and two for each edge. A cast on for a pattern 10 stitches wide might look like this:&lt;/p&gt;
+&lt;h5 id=&quot;casting-on-for-your-pixel-pattern&quot;&gt;Casting on for your pixel pattern&lt;/h5&gt;
+&lt;p&gt;We want to cast on &lt;strong&gt;two more stitches than the width of our pattern&lt;/strong&gt;, giving us enough stitches to fulfil the pattern itself, and two for each edge. A cast on for a pattern 10 stitches wide might look like this:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/cast-on.jpg&quot; alt=&quot;cast on finished&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;#####Alternative edges
-In the video, she starts and ends each row by knitting the double stitch (the light and the dark together) and never with a purl.&lt;/p&gt;
+&lt;h5 id=&quot;alternative-edges&quot;&gt;Alternative edges&lt;/h5&gt;
+&lt;p&gt;In the video, she starts and ends each row by knitting the double stitch (the light and the dark together) and never with a purl.&lt;/p&gt;
 
 &lt;p&gt;I started off doing this and found it creates this sort of serrated edge on each side:
 &lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/edge-a.jpg&quot; alt=&quot;cast on finished&quot; /&gt;&lt;/p&gt;
@@ -540,18 +540,18 @@ In the video, she starts and ends each row by knitting the double stitch (the li
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/edges.png&quot; alt=&quot;L pattern A&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;#####Changing yarns
-Just to save you some panicked googling when one or both of your first balls of yarn run out, here’s &lt;a href=&quot;https://www.youtube.com/watch?v=FodIHGHYBnM&quot;&gt;a video from KnitFreedom&lt;/a&gt;, which taught me how to change my yarn.&lt;/p&gt;
+&lt;h5 id=&quot;changing-yarns&quot;&gt;Changing yarns&lt;/h5&gt;
+&lt;p&gt;Just to save you some panicked googling when one or both of your first balls of yarn run out, here’s &lt;a href=&quot;https://www.youtube.com/watch?v=FodIHGHYBnM&quot;&gt;a video from KnitFreedom&lt;/a&gt;, which taught me how to change my yarn.&lt;/p&gt;
 
-&lt;p&gt;#####The cast off
-I was pretty lazy with my cast off but it turned out fine. I just did a basic cast off, knitting the two stitches for each side together. So, following my cast-off approach for a ten-pixel-wide pattern, you’d cast off 12 stitches total. One for each of the edges, combining the yarns as per usual, and one for each pixel in the pattern, combining them to get both colours in the same stitch.&lt;/p&gt;
+&lt;h5 id=&quot;the-cast-off&quot;&gt;The cast off&lt;/h5&gt;
+&lt;p&gt;I was pretty lazy with my cast off but it turned out fine. I just did a basic cast off, knitting the two stitches for each side together. So, following my cast-off approach for a ten-pixel-wide pattern, you’d cast off 12 stitches total. One for each of the edges, combining the yarns as per usual, and one for each pixel in the pattern, combining them to get both colours in the same stitch.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/cast-off.jpg&quot; alt=&quot;L pattern A&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;#####Tidying up your loose ends
-Tidying up loose ends on a double knitted scarf is refreshingly easy. As we’ve sort of made a big, occasionally-connected pocket with our two sides, we can just use a tapestry needle to poke them into the middle. Magic.&lt;/p&gt;
+&lt;h5 id=&quot;tidying-up-your-loose-ends&quot;&gt;Tidying up your loose ends&lt;/h5&gt;
+&lt;p&gt;Tidying up loose ends on a double knitted scarf is refreshingly easy. As we’ve sort of made a big, occasionally-connected pocket with our two sides, we can just use a tapestry needle to poke them into the middle. Magic.&lt;/p&gt;
 
-&lt;p&gt;###Following the pixel pattern&lt;/p&gt;
+&lt;h3 id=&quot;following-the-pixel-pattern&quot;&gt;Following the pixel pattern&lt;/h3&gt;
 
 &lt;p&gt;The fact that our scarf is double-sided makes following the pattern a bit interesting, and I’ll go through an example here. The crucial factors are that, &lt;strong&gt;at the end of every row&lt;/strong&gt;:&lt;/p&gt;
 
@@ -560,7 +560,7 @@ Tidying up loose ends on a double knitted scarf is refreshingly easy. As we’ve
   &lt;li&gt;&lt;strong&gt;The colours are reversed&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Here’s our pattern, which I knocked up in Pinta. (see &lt;a href=&quot;http://blog.lrnk.co.uk/the-christmas-fam-scarf-part-1&quot;&gt;part one&lt;/a&gt; for more detail on making pixel patterns). It’s 10x10 and I was originally intending it to be an L for Laurie, but, as you can see, it looks more like a learner driver plate.&lt;/p&gt;
+&lt;p&gt;Here’s our pattern, which I knocked up in Pinta. (see &lt;a href=&quot;/2015/12/24/the-christmas-fam-scarf-part-1&quot;&gt;part one&lt;/a&gt; for more detail on making pixel patterns). It’s 10x10 and I was originally intending it to be an L for Laurie, but, as you can see, it looks more like a learner driver plate.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/l-pattern.png&quot; alt=&quot;L pattern&quot; /&gt;&lt;/p&gt;
 
@@ -580,7 +580,7 @@ Tidying up loose ends on a double knitted scarf is refreshingly easy. As we’ve
 
 &lt;p&gt;And that’s pretty much it! Obviously, rows seven and eight are identical to five and six respectively, and rows nine and ten mirror the first two. Cast it off, tidy in the ends, stick it on your toy car and admire a job well done.&lt;/p&gt;
 
-&lt;p&gt;#####Trickier patterns&lt;/p&gt;
+&lt;h5 id=&quot;trickier-patterns&quot;&gt;Trickier patterns&lt;/h5&gt;
 
 &lt;p&gt;For simple patterns, visualising this stuff mentally is easy enough. I got all the way through my test duck quite happily, and was even &lt;em&gt;just about&lt;/em&gt; smiling as I worked my way through my knitted QR code experiment:&lt;/p&gt;
 
@@ -594,7 +594,7 @@ You’ll be surprised to learn that it didn’t work.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/phone-pixel-pattern.png&quot; alt=&quot;pattern on phone&quot; /&gt;
 Oh god.&lt;/p&gt;
 
-&lt;p&gt;It’s for this reason that I invested time and enthusiasm in &lt;em&gt;ScarfParty&lt;/em&gt;, my pixel pattern tracking web app. You can read all about the app, how it was made, and how you can use it for your own double-sided scarf projects in &lt;a href=&quot;http://blog.lrnk.co.uk/the-christmas-fam-scarf-part-3&quot;&gt;the next exciting chapter of the tale of the Christmas fam scarf&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It’s for this reason that I invested time and enthusiasm in &lt;em&gt;ScarfParty&lt;/em&gt;, my pixel pattern tracking web app. You can read all about the app, how it was made, and how you can use it for your own double-sided scarf projects in &lt;a href=&quot;/2016/07/18/the-christmas-fam-scarf-part-3&quot;&gt;the next exciting chapter of the tale of the Christmas fam scarf&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sun, 31 Jan 2016 21:45:00 +0000</pubDate>
       </item>
@@ -607,17 +607,17 @@ Oh god.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/famscarffinished.jpg&quot; alt=&quot;fam scarf in progress&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;###What’s in the blog&lt;/p&gt;
+&lt;h3 id=&quot;whats-in-the-blog&quot;&gt;What’s in the blog&lt;/h3&gt;
 
 &lt;p&gt;Over the last three months, this scarf and I have been on a journey, from the apprehension of the knitting technique, to the creation of the pattern, then &lt;em&gt;ScarfParty&lt;/em&gt;, the web app I wrote to track my pattern, and finally the actual knitting itself. It’s the tale of this journey that I intend to recount in this festive three-part blog.&lt;/p&gt;
 
 &lt;p&gt;You’re reading &lt;em&gt;Part one: The intro and the pattern&lt;/em&gt;. Here you’ll be charmed and intrigued and then you’ll learn how you can create a slick lo-fi pixellated knitting pattern from almost maybe any image.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://blog.lrnk.co.uk/the-christmas-fam-scarf-part-2&quot;&gt;Part two: The actual knitting&lt;/a&gt; will cover the knitting itself, the double-sided knitting technique involved and how to use it to bring a pixel pattern to life.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2016/01/31/the-christmas-fam-scarf-part-2&quot;&gt;Part two: The actual knitting&lt;/a&gt; will cover the knitting itself, the double-sided knitting technique involved and how to use it to bring a pixel pattern to life.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://blog.lrnk.co.uk/the-christmas-fam-scarf-part-3&quot;&gt;Part three: ScarfParty - your solution to the pixel pattern problem&lt;/a&gt; will showcase the app I’ve written and open-sourced for following these pixel patterns. If you do have a go at making your own pixel-pattern scarf, you’ll soon realise just how necessary this is!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2016/07/18/the-christmas-fam-scarf-part-3&quot;&gt;Part three: ScarfParty - your solution to the pixel pattern problem&lt;/a&gt; will showcase the app I’ve written and open-sourced for following these pixel patterns. If you do have a go at making your own pixel-pattern scarf, you’ll soon realise just how necessary this is!&lt;/p&gt;
 
-&lt;p&gt;###Right then, this pattern&lt;/p&gt;
+&lt;h3 id=&quot;right-then-this-pattern&quot;&gt;Right then, this pattern&lt;/h3&gt;
 
 &lt;p&gt;Having undergone many iterations and complete rebirths from its first conception, here it is! Note that this image has been squished (see later), duplicated, and flipped for full effect.&lt;/p&gt;
 
@@ -625,7 +625,7 @@ Oh god.&lt;/p&gt;
 
 &lt;p&gt;All members of the household, great and small, are represented here in loving detail. Each of the component images has been boiled down from a full-sized colour image using super easy colour manipulation. Each pixel represents a single stitch. Let’s go through an example, making a new pattern from scratch.&lt;/p&gt;
 
-&lt;p&gt;###To follow this tutorial, you will need: Some image editing software&lt;/p&gt;
+&lt;h3 id=&quot;to-follow-this-tutorial-you-will-need-some-image-editing-software&quot;&gt;To follow this tutorial, you will need: Some image editing software&lt;/h3&gt;
 
 &lt;p&gt;I found (with my choices limited on my Ubuntu machine) I had to use a variety of different image editing software to achieve all the necessary bits. You can use whatever you like  (unless you find yourself trapped on Ubuntu) but here’s what I ended up on.&lt;/p&gt;
 
@@ -633,15 +633,15 @@ Oh god.&lt;/p&gt;
 
 &lt;p&gt;I used &lt;a href=&quot;https://pixlr.com/editor/&quot;&gt;Pixlr Editor&lt;/a&gt; for assembling the image onto the scarf. I have to put aside a lot of prejudice when I discover something’s written in Flash, but this was the best thing I could find for filling the gaps in Pinta. Its brush tools are a bit laggy and its contrast function is a bit lightweight (this, as we will see, is a critical deficiency), but I was still pleased to find it.&lt;/p&gt;
 
-&lt;p&gt;###Spec’ing out your scarf
-Before you start on your pattern, you need to think about how long and wide you want your scarf to be, and how many rows and stitches you need to achieve your desired dimensions. This will of course depend on your needles and your wool and all that. The great thing about this being a scarf is that it doesn’t matter hugely how accurate you are with this. So long as you come out with something long enough to stretch to the circumference of your neck, you’re laughing.&lt;/p&gt;
+&lt;h3 id=&quot;specing-out-your-scarf&quot;&gt;Spec’ing out your scarf&lt;/h3&gt;
+&lt;p&gt;Before you start on your pattern, you need to think about how long and wide you want your scarf to be, and how many rows and stitches you need to achieve your desired dimensions. This will of course depend on your needles and your wool and all that. The great thing about this being a scarf is that it doesn’t matter hugely how accurate you are with this. So long as you come out with something long enough to stretch to the circumference of your neck, you’re laughing.&lt;/p&gt;
 
 &lt;p&gt;For the fam scarf, I did a bit of googling on what makes a good scarf size and found most of the results indicated that pretty much anything goes, but my mum told me she understood that a good scarf length was 150cm and I got the impression 20cm was a good width for a fairly wide scarf, which appealed to me because I knew that the wider the scarf, the more recognisable the images would turn out.&lt;/p&gt;
 
-&lt;p&gt;I used aran/worsted weight wool and 4.5mm needles. I wouldn’t necessarily follow this example if you think you’ve got a better idea, as my fam scarf is &lt;em&gt;heavy&lt;/em&gt;, but it’s certainly not a bad result. After making my little test duck (see &lt;a href=&quot;http://blog.lrnk.co.uk/the-christmas-fam-scarf-part-2&quot;&gt;part two&lt;/a&gt;) I satisfied myself that my pattern wanted to be 30 stitches wide (not including the start and end stitches that form the border), and 300 rows long (again, not including the cast on and off). The final thing ended up being 21cm wide and 147cm high, so not too far wide of the mark.&lt;/p&gt;
+&lt;p&gt;I used aran/worsted weight wool and 4.5mm needles. I wouldn’t necessarily follow this example if you think you’ve got a better idea, as my fam scarf is &lt;em&gt;heavy&lt;/em&gt;, but it’s certainly not a bad result. After making my little test duck (see &lt;a href=&quot;/2016/01/31/the-christmas-fam-scarf-part-2&quot;&gt;part two&lt;/a&gt;) I satisfied myself that my pattern wanted to be 30 stitches wide (not including the start and end stitches that form the border), and 300 rows long (again, not including the cast on and off). The final thing ended up being 21cm wide and 147cm high, so not too far wide of the mark.&lt;/p&gt;
 
-&lt;p&gt;###Are you right there Father Ted?
-For the sake of variety I’ll make the example from a screen cap of ’90s sitcom &lt;a href=&quot;https://en.wikipedia.org/wiki/Father_Ted&quot;&gt;Father Ted&lt;/a&gt; that I hopefully won’t get in trouble for using.&lt;/p&gt;
+&lt;h3 id=&quot;are-you-right-there-father-ted&quot;&gt;Are you right there Father Ted?&lt;/h3&gt;
+&lt;p&gt;For the sake of variety I’ll make the example from a screen cap of ’90s sitcom &lt;a href=&quot;https://en.wikipedia.org/wiki/Father_Ted&quot;&gt;Father Ted&lt;/a&gt; that I hopefully won’t get in trouble for using.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted1.jpg&quot; alt=&quot;fatherted1&quot; /&gt;&lt;/p&gt;
 
@@ -696,12 +696,12 @@ That’s not my brother.&lt;/p&gt;
 
 &lt;p&gt;Magnificent.&lt;/p&gt;
 
-&lt;p&gt;###Bonus features&lt;/p&gt;
+&lt;h3 id=&quot;bonus-features&quot;&gt;Bonus features&lt;/h3&gt;
 
 &lt;p&gt;Here’s a bit more info on some of the flourishes that went into the fam scarf.&lt;/p&gt;
 
-&lt;p&gt;####The stripy background
-I’m ashamed to say that I can’t for the life of me remember where I found the repeating stripy zigzag pattern that made up the background for the fam scarf. If you recognise it as yours, tweet me and I’ll credit you!&lt;/p&gt;
+&lt;h4 id=&quot;the-stripy-background&quot;&gt;The stripy background&lt;/h4&gt;
+&lt;p&gt;I’m ashamed to say that I can’t for the life of me remember where I found the repeating stripy zigzag pattern that made up the background for the fam scarf. If you recognise it as yours, tweet me and I’ll credit you!&lt;/p&gt;
 
 &lt;p&gt;I really like the way a repeating pattern like this draws the scarf into something more than just a creepy showcase of floating heads. I’m sure lots of things would work, but the stripe pattern was the first thing I tried and it ticked all the boxes for me. I found the easiest way to work with this in the pattern was as follows.&lt;/p&gt;
 
@@ -718,8 +718,8 @@ I’m ashamed to say that I can’t for the life of me remember where I found th
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/zigzags6.png&quot; alt=&quot;zigzags6&quot; /&gt;
 Superb.&lt;/p&gt;
 
-&lt;p&gt;####Adding text
-I only thought to add text to my scarf on my third and final attempt (my second attempt having been abandoned for unrelated reasons given above) and never have I found a more brilliant silver lining. I like the way it adds variety and I like its ability to remove all doubt about who your picture is supposed to represent. The sad thing is that it sort of takes further away from the reverse side of your finished product, as nothing says ‘Don’t look at this side’ like backwards text. It’s not a huge loss though, as I found the reverse side looks a bit weird anyway.&lt;/p&gt;
+&lt;h4 id=&quot;adding-text&quot;&gt;Adding text&lt;/h4&gt;
+&lt;p&gt;I only thought to add text to my scarf on my third and final attempt (my second attempt having been abandoned for unrelated reasons given above) and never have I found a more brilliant silver lining. I like the way it adds variety and I like its ability to remove all doubt about who your picture is supposed to represent. The sad thing is that it sort of takes further away from the reverse side of your finished product, as nothing says ‘Don’t look at this side’ like backwards text. It’s not a huge loss though, as I found the reverse side looks a bit weird anyway.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/reverse.jpg&quot; alt=&quot;reverse&quot; /&gt;
 Trippy.&lt;/p&gt;
@@ -728,7 +728,7 @@ Trippy.&lt;/p&gt;
 
 &lt;p&gt;You might find if you need to fit a longer word in that you can easily squish up some of the letters, for example, snip off the end of an L or take a pixel’s width out of the horizontal bars of an O.&lt;/p&gt;
 
-&lt;p&gt;Now you’ve got your pattern, head to &lt;a href=&quot;http://blog.lrnk.co.uk/the-christmas-fam-scarf-part-2&quot;&gt;Part two: The actual knitting&lt;/a&gt; to learn how the pattern comes to life as a real, actual, physical entity.&lt;/p&gt;
+&lt;p&gt;Now you’ve got your pattern, head to &lt;a href=&quot;/2016/01/31/the-christmas-fam-scarf-part-2&quot;&gt;Part two: The actual knitting&lt;/a&gt; to learn how the pattern comes to life as a real, actual, physical entity.&lt;/p&gt;
 </description>
         <pubDate>Thu, 24 Dec 2015 16:47:00 +0000</pubDate>
       </item>
@@ -741,12 +741,12 @@ Trippy.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/lrnksnake.gif&quot; alt=&quot;lrnk snake&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;#####Download the game: &lt;a href=&quot;https://github.com/laurieboyes/self-esteem-snake/releases/download/v1.1-beta/SelfEsteemSnake-1.1-beta.jar&quot;&gt;SelfEsteemSnake-1.1-beta.jar&lt;/a&gt;
-&lt;em&gt;Menu - arrow keys to select, return to confirm&lt;/em&gt;&lt;br /&gt;
+&lt;h5 id=&quot;download-the-game-selfesteemsnake-11-betajar&quot;&gt;Download the game: &lt;a href=&quot;https://github.com/laurieboyes/self-esteem-snake/releases/download/v1.1-beta/SelfEsteemSnake-1.1-beta.jar&quot;&gt;SelfEsteemSnake-1.1-beta.jar&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;em&gt;Menu - arrow keys to select, return to confirm&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;Game - arrow keys to move, p to pause&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;#####View the code: &lt;a href=&quot;https://github.com/laurieboyes/self-esteem-snake&quot;&gt;github.com/laurieboyes/self-esteem-snake&lt;/a&gt;
-&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h5 id=&quot;view-the-code-githubcomlaurieboyesself-esteem-snake&quot;&gt;View the code: &lt;a href=&quot;https://github.com/laurieboyes/self-esteem-snake&quot;&gt;github.com/laurieboyes/self-esteem-snake&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;As well as giving me one more shiny thing to put on my personal website, this project was contrived to help me learn &lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt; (imagine the mess in a world without Git!) and to take a small chip out of the looming monolith that was my &lt;a href=&quot;https://en.wikipedia.org/wiki/Impostor_syndrome&quot;&gt;imposter syndrome&lt;/a&gt; by finally giving me a solid, first-hand understanding of working with &lt;a href=&quot;https://en.wikipedia.org/wiki/Test-driven_development&quot;&gt;Test-driven Development&lt;/a&gt;.&lt;/p&gt;
 
@@ -772,8 +772,8 @@ Trippy.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/littlegreenmen-walkshoot.gif&quot; alt=&quot;lrnce tetris&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;#####Play the game: &lt;a href=&quot;http://static.lrnk.co.uk/littlegreenmen&quot;&gt;Little Green Men&lt;/a&gt;
-&lt;em&gt;Move/Jump: wasd&lt;/em&gt;&lt;br /&gt;
+&lt;h5 id=&quot;play-the-game-little-green-men&quot;&gt;Play the game: &lt;a href=&quot;http://static.lrnk.co.uk/littlegreenmen&quot;&gt;Little Green Men&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;em&gt;Move/Jump: wasd&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;Shoot: l&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;Pause: p&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;Mute sound: m&lt;/em&gt;&lt;/p&gt;
@@ -797,8 +797,8 @@ Trippy.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/lrncetetris.gif&quot; alt=&quot;lrnce tetris&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;#####Download the game: &lt;a href=&quot;http://static.lrnk.co.uk/LrnceTetris.jar&quot;&gt;LrnceTetris.jar&lt;/a&gt;
-&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h5 id=&quot;download-the-game-lrncetetrisjar&quot;&gt;Download the game: &lt;a href=&quot;http://static.lrnk.co.uk/LrnceTetris.jar&quot;&gt;LrnceTetris.jar&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;The premise of the game is… Tetris! Of course. It’s a Tetris clone. What budding games programmer hasn’t seen appeal in Tetris’s simple action, it’s easy art, it’s instant familiarity. There’s something about creating your own version of a game you’ve previously consumed with unblinking glee that really makes a project exciting.&lt;/p&gt;
 

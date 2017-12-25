@@ -146,7 +146,7 @@
       
     </p>
   </header>
-  <section class="post-content"><p>Earlier this year I wrote <em>ScarfParty</em>, a knitting companion that centred around a dynamic pattern display that changed along with the knitter’s progress. The pattern information was loaded in from a small black and white image. If you’re interested, you can <a href="http://blog.lrnk.co.uk/tag/the-christmas-fam-scarf/">learn more about my adventures with scarves</a>.</p>
+  <section class="post-content"><p>Earlier this year I wrote <em>ScarfParty</em>, a knitting companion that centred around a dynamic pattern display that changed along with the knitter’s progress. The pattern information was loaded in from a small black and white image. If you’re interested, you can <a href="/tags.html#the-christmas-fam-scarf">learn more about my adventures with scarves</a>.</p>
 
 <p><img src="http://static.lrnk.co.uk/blog-content/playing-with-image-data/image-mucking.png" alt="image mucking" /></p>
 
@@ -156,7 +156,7 @@
 
 <p><em>And the tests:</em> <a href="https://github.com/laurieboyes/scarfparty-v2/blob/master/test/tests/pattern.spec.js">github.com/laurieboyes/scarfparty-v2/blob/master/test/tests/pattern.spec.js</a></p>
 
-<p>####Reading the image</p>
+<h4 id="reading-the-image">Reading the image</h4>
 
 <p>Problem number one was to get the information out of the image with JavaScript.</p>
 
@@ -199,8 +199,8 @@ For example, when passed this <em>very</em> small image 3 x 2 pixels in size:</p
 <span class="p">]</span>
 </code></pre></div></div>
 
-<p><span class="paragraph-space-forcer"></span>
-####Translating the image data</p>
+<p><span class="paragraph-space-forcer"></span></p>
+<h4 id="translating-the-image-data">Translating the image data</h4>
 
 <p>I needed to turn this flat array of information into something meaningful and easy to use to recreate the image. All I really needed to know was which pixels were black and which were white, so I wrote this small function to take the results of the above and turn them into a flat array of 1s and 0s.</p>
 
@@ -237,7 +237,7 @@ When passed the array resulting from the <code class="highlighter-rouge">getImag
 
 <p>And there we have it! We now have an easy to read array of the on/off state of each pixel, grouped into rows, which we can use to redisplay the image in any way we choose. In my case this basically involved looping over the nested arrays and drawing squares on a canvas with the appropriate position and colour.</p>
 
-<p>####Controversial choices</p>
+<h4 id="controversial-choices">Controversial choices</h4>
 
 <p>My flatmate, peering over my shoulder, has just pointed out that returning 1s and 0s rather than booleans is a bit of a code smell. My best guess as to why I didn’t think of this myself at the time is that doing it this way made my test cases look nicer:</p>
 

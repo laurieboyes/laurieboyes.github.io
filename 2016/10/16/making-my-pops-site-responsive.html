@@ -150,7 +150,7 @@
 
 <p>Here I’ve detailed a selection of the changes I made to make it so.</p>
 
-<p>###Enhance!</p>
+<h3 id="enhance">Enhance!</h3>
 
 <p>First thing I did was stick in a viewport meta tag:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
@@ -168,7 +168,7 @@
 
 <p>There’s plenty more info about <a href="https://developer.mozilla.org/en/docs/Mozilla/Mobile/Viewport_meta_tag">viewport meta tags</a> on MDN.</p>
 
-<p>###Fat stacks</p>
+<h3 id="fat-stacks">Fat stacks</h3>
 
 <p>Most of the pages of the site have a sidebar with some jazzy links to other relevant pages. With our limited space on mobile devices, we needed the body content to occupy the full page width, and so the best thing for these links was for them to stack at the bottom.</p>
 
@@ -215,7 +215,7 @@
 
 <p>Hooray.</p>
 
-<p>###Navelucidation</p>
+<h3 id="navelucidation">Navelucidation</h3>
 
 <p>So the existing navigation works great on desktop. It’s your pretty standard styled list of links, some of which have submenus with additional links that reveal themselves on hover.</p>
 
@@ -227,13 +227,13 @@
 
 <p>So, I did a quick google for mobile navigation patterns and found one that would solve these problems (and that I fancied implementing).</p>
 
-<p>####Step 1 - mobile first</p>
+<h4 id="step-1---mobile-first">Step 1 - mobile first</h4>
 
 <p>First I set up the list of top-level-menu links and styled it up similarly to the existing menu, the main exception being that each link would stack vertically and occupy 100% of the page width.</p>
 
 <p><img src="http://static.lrnk.co.uk/blog-content/popsite/menu-stacked-framed.png#mobile-framed" alt="menu squished" /></p>
 
-<p>####Step 2 - digging deep</p>
+<h4 id="step-2---digging-deep">Step 2 - digging deep</h4>
 
 <p>I set up the sub nav in a similar way, except within the main links. I made an open/close toggle button that would change the height property of the top level link, effectively hiding and showing the submenu.</p>
 
@@ -243,23 +243,23 @@
 
 <p>Upsettingly, transitioning from fixed height to auto height doesn’t work with CSS transitions, so for a neat animation, you need to know exactly how high the menu should change to on expand. This isn’t an insurmountable problem however, as we can work it out with a bit of javascript.</p>
 
-<p>####Step 3 - the big reveal</p>
+<h4 id="step-3---the-big-reveal">Step 3 - the big reveal</h4>
 
 <p>To save valuable mobile-device screen real estate, I collapsed the menu into an all-consuming ‘menu’ item, having it closed by default.  It was also important to animate this open and closed, which meant a bit more height querying, but this is no big deal. The menu is closed by default, meaning the user has to do less scrolling before getting to the content.</p>
 
 <p><img src="http://static.lrnk.co.uk/blog-content/popsite/menu-expanding-whole-framed.gif#mobile-framed" alt="menu squished" /></p>
 
-<p>####Step 4 - you are here</p>
+<h4 id="step-4---you-are-here">Step 4 - you are here</h4>
 
 <p>I don’t think navigation tools are all that useful if they can’t tell you where you are in addition to where you can go. I made it so that on page load, the current menu item is highlighted to waypoint the current page, and, by necessity, that if the current page is within a submenu, that submenu is expanded on page load.</p>
 
 <p><img src="http://static.lrnk.co.uk/blog-content/popsite/menu-highlight-framed.png#mobile-framed" alt="menu highlighted" /></p>
 
-<p>####Show me the codez</p>
+<h4 id="show-me-the-codez">Show me the codez</h4>
 
 <p>Here’s the code and a demo of the nav in a nice neat jsbin: http://jsbin.com/nidiyay/edit?html,css,js,output</p>
 
-<p>###That’ll do it</p>
+<h3 id="thatll-do-it">That’ll do it</h3>
 
 <p>As always, there are still improvements that can be made, but for the interim I’m pretty pleased with it! Check it out on your own mobile-or-otherwise device at <a href="http://www.able-governance.co.uk/">able-governance.co.uk</a>, and, if you fancy it, maybe put in a query for pension scheme advice or something while you’re there.</p>
 
