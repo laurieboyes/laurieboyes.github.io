@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>Dusting off old language skills and going native with Android (temporarily) | Laurie Boyes codes and sometimes knits</title>
+	<meta name="description" content="Tl;dr I wrote an Android app. It does some background processing and some location tracking and here’s the code (it’s messy).">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="/2018/01/07/going-native-with-android.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="Laurie Boyes codes and sometimes knits" href="/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js"></script>
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/">
+			<img class="avatar" src="https://secure.gravatar.com/avatar/e7d2c83b29f800e81a82686df380fe41?s=100" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/">Laurie Boyes codes and sometimes knits</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/tags.html">
+					tags
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled  -->
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/laurieboyes" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/LaurieBoyes" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+            
+            <!-- Search bar -->
+            
+		</ul>
+	</nav>
+    
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+    <h1 class="title">Dusting off old language skills and going native with Android (temporarily)</h1>
+    
+    <p class="meta">
+      January 7, 2018
+      
+    </p>
+  </header>
+  <section class="post-content"><p><strong><em>Tl;dr</em></strong> <em>I wrote an Android app. It does some background processing and some location tracking and <a href="https://github.com/laurieboyes/pokemon-radar-location-tracker">here’s the code</a> (it’s messy).</em></p>
+
+<p>This weekend I was delighted to discover that, after 3 or 4 years of JavaScript super-fanaticism, I’m still able to Java! A bit anyway. Enough at least to write a small native Android app to plug a gap in the otherwise wonderful and increasingly powerful suite of tools available to modern web apps.</p>
+
+<p>Here’s my gnarly spaghetti Java code: <a href="https://github.com/laurieboyes/pokemon-radar-location-tracker">github.com/laurieboyes/pokemon-radar-location-tracker</a>.</p>
+
+<h3 id="why-go-native">Why go native?</h3>
+
+<p>My friend and colleague at the FT <a href="https://twitter.com/lc512k">@lc512k</a> wrote a really cool web app that uses the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">service worker API</a> to give you timely push notifications with some info that’s based on your location.</p>
+
+<p>It works great! However, with the web app alone, whenever your location changes and you want the app to know about it, you have to go into the app and press an ‘update my location’ button. This is because while service workers do give web apps powers they’d never dreamed of before, they don’t yet allow them to continually track the user’s location, presumably because this functionality has the potential to be a full-blown privacy nightmare.</p>
+
+<p>However, native Android apps have been navigating these trecherous waters for yonks, so I thought I’d take a deep breath and give it ago. Amazingly, it worked!</p>
+
+<h3 id="cool-what-was-involved">Cool, what was involved?</h3>
+
+<p>Here’s a list of stuff I learned how to do on Android:</p>
+
+<h4 id="use-the-jobscheduler-api-to-schedule-a-regularly-repeating-background-job">Use the JobScheduler API to schedule a regularly repeating background job</h4>
+
+<p>I took a rather circuitious route to get here, but this allowed me to schedule a job that I could start and stop from my app, but would keep on ticking after the app had closed.</p>
+
+<p>These resources combined to help a great deal:</p>
+
+<p><a href="https://developer.android.com/reference/android/app/job/JobScheduler.html">https://developer.android.com/reference/android/app/job/JobScheduler.html</a></p>
+
+<p><a href="https://medium.com/google-developers/scheduling-jobs-like-a-pro-with-jobscheduler-286ef8510129">https://medium.com/google-developers/scheduling-jobs-like-a-pro-with-jobscheduler-286ef8510129</a></p>
+
+<p><a href="https://code.tutsplus.com/tutorials/using-the-jobscheduler-api-on-android-lollipop--cms-23562">https://code.tutsplus.com/tutorials/using-the-jobscheduler-api-on-android-lollipop–cms-23562</a></p>
+
+<h4 id="use-google-play-services-to-access-the-devices-last-known-location">Use Google Play services to access the device’s last known location</h4>
+
+<p>This included having it ask the user nicely for permission to do so. I like that the location API allows you to get the last known location without having to do any real-time, battery-draining GPS stuff. Apparently on Android 8, this will be updated a few times an hour in the background, which is good enough for our purposes.</p>
+
+<p>The Android developer docs were very helpful on this subject: <a href="https://developer.android.com/training/location/retrieve-current.html">https://developer.android.com/training/location/retrieve-current.html</a></p>
+
+<h4 id="make-a-json-http-post-request">Make a JSON HTTP POST request</h4>
+
+<p>This was so that on every tick the updated location could be POSTed to the web app’s backend (provided it was far enough away from the previous location).</p>
+
+<p>The Android developer docs recommend usage of the Volley library for these purposes, which I felt was enough endorsement to encourage me to do the same: <a href="https://developer.android.com/training/volley/request.html">https://developer.android.com/training/volley/request.html</a></p>
+
+<h4 id="use-android-studios-layout-editor-to-make-a-simple-ui">Use Android Studio’s layout editor to make a simple UI</h4>
+
+<p><img src="http://static.lrnk.co.uk/blog-content/android/layout.png?cachebust=1" alt="layout" /></p>
+
+<p>(And it is very simple)</p>
+
+<p>I thought I’d be crying out for the familiar and comfortable feeling of writing layouts with HTML and CSS, but the layout editor made this surprisingly easy! Although I couldn’t say for certain whether or not my enthusiasm would hold out if I were to attempt a more complex UI.</p>
+
+<p>I went for a constraint-based layout, which means everything is positioned according to its proximity to everything else. There are plenty of other layout types (grid, frame, etc) but I’m happy with this one for my app.</p>
+
+<h4 id="persisted-user-input-in-the-sharedpreferences-thing">Persisted user input in the SharedPreferences thing</h4>
+
+<p>Amongst other storage solutions, Android has a thing called <em>SharedPreferences</em> which is a service for creating a persisted key value stores retreivable by an assigned name. This is pretty neat. I guess it’s like <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">browser localStorage</a> but accessible between apps.</p>
+
+<p>The Android developer docs told me everything I needed: <a href="https://developer.android.com/guide/topics/data/data-storage.html#pref">https://developer.android.com/guide/topics/data/data-storage.html#pref</a></p>
+
+<h3 id="neat">Neat</h3>
+
+<p>Yeah I know, right? The linked resources really helped me and I’m sure would help anyone trying to acheive similar ends. If that’s you, good luck!</p>
+</section>
+  
+<footer>
+  <div class="tags">
+    
+    <a class="tag" href="/tags#android">#android</a>
+    
+    <a class="tag" href="/tags#java">#java</a>
+    
+  </div>
+</footer>
+
+
+</article>
+
+<!-- Disqus -->
+
+
+<!-- Post navigation -->
+
+
+    </div>
+    
+<script src="/assets/js/katex_init.js"></script>
+
+
+
+<footer class="site-footer">
+	<p class="text">Laurie Boyes codes and sometimes knits © 2018. Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/rohanchandra/type-theme">Type Theme</a>
+</p>
+</footer>
+
+
+  </body>
+</html>

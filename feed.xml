@@ -5,7 +5,76 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     <link>https://laurieboyes.github.io/</link>
     <description>knitting javascript developer software web</description>
-    <pubDate>Mon, 25 Dec 2017 10:50:26 +0000</pubDate>
+    <pubDate>Sat, 13 Jan 2018 17:00:01 +0000</pubDate>
+    
+      <item>
+        <title>Dusting off old language skills and going native with Android (temporarily)</title>
+        <link>/2018/01/07/going-native-with-android.html</link>
+        <guid isPermaLink="true">/2018/01/07/going-native-with-android.html</guid>
+        <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;Tl;dr&lt;/em&gt;&lt;/strong&gt; &lt;em&gt;I wrote an Android app. It does some background processing and some location tracking and &lt;a href=&quot;https://github.com/laurieboyes/pokemon-radar-location-tracker&quot;&gt;here’s the code&lt;/a&gt; (it’s messy).&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This weekend I was delighted to discover that, after 3 or 4 years of JavaScript super-fanaticism, I’m still able to Java! A bit anyway. Enough at least to write a small native Android app to plug a gap in the otherwise wonderful and increasingly powerful suite of tools available to modern web apps.&lt;/p&gt;
+
+&lt;p&gt;Here’s my gnarly spaghetti Java code: &lt;a href=&quot;https://github.com/laurieboyes/pokemon-radar-location-tracker&quot;&gt;github.com/laurieboyes/pokemon-radar-location-tracker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-go-native&quot;&gt;Why go native?&lt;/h3&gt;
+
+&lt;p&gt;My friend and colleague at the FT &lt;a href=&quot;https://twitter.com/lc512k&quot;&gt;@lc512k&lt;/a&gt; wrote a really cool web app that uses the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API&quot;&gt;service worker API&lt;/a&gt; to give you timely push notifications with some info that’s based on your location.&lt;/p&gt;
+
+&lt;p&gt;It works great! However, with the web app alone, whenever your location changes and you want the app to know about it, you have to go into the app and press an ‘update my location’ button. This is because while service workers do give web apps powers they’d never dreamed of before, they don’t yet allow them to continually track the user’s location, presumably because this functionality has the potential to be a full-blown privacy nightmare.&lt;/p&gt;
+
+&lt;p&gt;However, native Android apps have been navigating these trecherous waters for yonks, so I thought I’d take a deep breath and give it ago. Amazingly, it worked!&lt;/p&gt;
+
+&lt;h3 id=&quot;cool-what-was-involved&quot;&gt;Cool, what was involved?&lt;/h3&gt;
+
+&lt;p&gt;Here’s a list of stuff I learned how to do on Android:&lt;/p&gt;
+
+&lt;h4 id=&quot;use-the-jobscheduler-api-to-schedule-a-regularly-repeating-background-job&quot;&gt;Use the JobScheduler API to schedule a regularly repeating background job&lt;/h4&gt;
+
+&lt;p&gt;I took a rather circuitious route to get here, but this allowed me to schedule a job that I could start and stop from my app, but would keep on ticking after the app had closed.&lt;/p&gt;
+
+&lt;p&gt;These resources combined to help a great deal:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.android.com/reference/android/app/job/JobScheduler.html&quot;&gt;https://developer.android.com/reference/android/app/job/JobScheduler.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://medium.com/google-developers/scheduling-jobs-like-a-pro-with-jobscheduler-286ef8510129&quot;&gt;https://medium.com/google-developers/scheduling-jobs-like-a-pro-with-jobscheduler-286ef8510129&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://code.tutsplus.com/tutorials/using-the-jobscheduler-api-on-android-lollipop--cms-23562&quot;&gt;https://code.tutsplus.com/tutorials/using-the-jobscheduler-api-on-android-lollipop–cms-23562&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;use-google-play-services-to-access-the-devices-last-known-location&quot;&gt;Use Google Play services to access the device’s last known location&lt;/h4&gt;
+
+&lt;p&gt;This included having it ask the user nicely for permission to do so. I like that the location API allows you to get the last known location without having to do any real-time, battery-draining GPS stuff. Apparently on Android 8, this will be updated a few times an hour in the background, which is good enough for our purposes.&lt;/p&gt;
+
+&lt;p&gt;The Android developer docs were very helpful on this subject: &lt;a href=&quot;https://developer.android.com/training/location/retrieve-current.html&quot;&gt;https://developer.android.com/training/location/retrieve-current.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;make-a-json-http-post-request&quot;&gt;Make a JSON HTTP POST request&lt;/h4&gt;
+
+&lt;p&gt;This was so that on every tick the updated location could be POSTed to the web app’s backend (provided it was far enough away from the previous location).&lt;/p&gt;
+
+&lt;p&gt;The Android developer docs recommend usage of the Volley library for these purposes, which I felt was enough endorsement to encourage me to do the same: &lt;a href=&quot;https://developer.android.com/training/volley/request.html&quot;&gt;https://developer.android.com/training/volley/request.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;use-android-studios-layout-editor-to-make-a-simple-ui&quot;&gt;Use Android Studio’s layout editor to make a simple UI&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/android/layout.png?cachebust=1&quot; alt=&quot;layout&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;(And it is very simple)&lt;/p&gt;
+
+&lt;p&gt;I thought I’d be crying out for the familiar and comfortable feeling of writing layouts with HTML and CSS, but the layout editor made this surprisingly easy! Although I couldn’t say for certain whether or not my enthusiasm would hold out if I were to attempt a more complex UI.&lt;/p&gt;
+
+&lt;p&gt;I went for a constraint-based layout, which means everything is positioned according to its proximity to everything else. There are plenty of other layout types (grid, frame, etc) but I’m happy with this one for my app.&lt;/p&gt;
+
+&lt;h4 id=&quot;persisted-user-input-in-the-sharedpreferences-thing&quot;&gt;Persisted user input in the SharedPreferences thing&lt;/h4&gt;
+
+&lt;p&gt;Amongst other storage solutions, Android has a thing called &lt;em&gt;SharedPreferences&lt;/em&gt; which is a service for creating a persisted key value stores retreivable by an assigned name. This is pretty neat. I guess it’s like &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage&quot;&gt;browser localStorage&lt;/a&gt; but accessible between apps.&lt;/p&gt;
+
+&lt;p&gt;The Android developer docs told me everything I needed: &lt;a href=&quot;https://developer.android.com/guide/topics/data/data-storage.html#pref&quot;&gt;https://developer.android.com/guide/topics/data/data-storage.html#pref&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;neat&quot;&gt;Neat&lt;/h3&gt;
+
+&lt;p&gt;Yeah I know, right? The linked resources really helped me and I’m sure would help anyone trying to acheive similar ends. If that’s you, good luck!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 07 Jan 2018 09:51:34 +0000</pubDate>
+      </item>
     
       <item>
         <title>Constructive sloppiness</title>
