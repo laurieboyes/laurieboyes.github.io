@@ -3,9 +3,9 @@
   <channel>
     <title>Laurie Boyes codes and sometimes knits</title>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <link>https://laurieboyes.github.io/</link>
+    <link>http://localhost:4000/</link>
     <description>knitting javascript developer software web</description>
-    <pubDate>Sat, 13 Jan 2018 17:00:01 +0000</pubDate>
+    <pubDate>Sun, 14 Jan 2018 10:01:01 +0000</pubDate>
     
       <item>
         <title>Dusting off old language skills and going native with Android (temporarily)</title>
@@ -175,11 +175,13 @@
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Before (&lt;em&gt;squint&lt;/em&gt;):
-&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/meta-before-framed.png#mobile-framed&quot; alt=&quot;meta before&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Before (&lt;em&gt;squint&lt;/em&gt;):&lt;/p&gt;
 
-&lt;p&gt;After:
-&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/meta-after-framed.png#mobile-framed&quot; alt=&quot;meta before&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/meta-before-framed.png#mobile-framed&quot; alt=&quot;meta before&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/meta-after-framed.png#mobile-framed&quot; alt=&quot;meta before&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Although at first glance this does arguably look like a worse experience, the viewport meta tag is very useful for responsive sites. It saves the browser from having to guess at how wide to render the page, ensuring that it’s rendered for the device’s screen width, meaning that the text will be big enough to read.&lt;/p&gt;
 
@@ -191,11 +193,13 @@
 
 &lt;p&gt;Most of the pages of the site have a sidebar with some jazzy links to other relevant pages. With our limited space on mobile devices, we needed the body content to occupy the full page width, and so the best thing for these links was for them to stack at the bottom.&lt;/p&gt;
 
-&lt;p&gt;Before (scrolling over awkwardly):
-&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/stacking-before-framed.png#mobile-framed&quot; alt=&quot;stacking before&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Before (scrolling over awkwardly):&lt;/p&gt;
 
-&lt;p&gt;After (scrolling down with a natural ease):
-&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/stacking-after-framed.png#mobile-framed&quot; alt=&quot;stacking after&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/stacking-before-framed.png#mobile-framed&quot; alt=&quot;stacking before&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After (scrolling down with a natural ease):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/stacking-after-framed.png#mobile-framed&quot; alt=&quot;stacking after&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;First thing was to remove the existing absolute positioning of the &lt;code class=&quot;highlighter-rouge&quot;&gt;.content&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;.sidebar&lt;/code&gt; components and set them both to 100% width, so that by default they’d stack up one on top of the other.&lt;/p&gt;
 
@@ -226,11 +230,13 @@
 
 &lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/sidebar%20desktop.png&quot; alt=&quot;sidebar desktop&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;And this on mobile:
-&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/sidebar%20mobile.png&quot; alt=&quot;sidebar mobile&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;And this on mobile:&lt;/p&gt;
 
-&lt;p&gt;And this on both (bonus gif):
-&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/reposiveness.gif&quot; alt=&quot;responiveness&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/sidebar%20mobile.png&quot; alt=&quot;sidebar mobile&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And this on both (bonus gif):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/reposiveness.gif&quot; alt=&quot;responiveness&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hooray.&lt;/p&gt;
 
@@ -281,7 +287,6 @@
 &lt;h3 id=&quot;thatll-do-it&quot;&gt;That’ll do it&lt;/h3&gt;
 
 &lt;p&gt;As always, there are still improvements that can be made, but for the interim I’m pretty pleased with it! Check it out on your own mobile-or-otherwise device at &lt;a href=&quot;http://www.able-governance.co.uk/&quot;&gt;able-governance.co.uk&lt;/a&gt;, and, if you fancy it, maybe put in a query for pension scheme advice or something while you’re there.&lt;/p&gt;
-
 </description>
         <pubDate>Sun, 16 Oct 2016 10:25:59 +0100</pubDate>
       </item>
