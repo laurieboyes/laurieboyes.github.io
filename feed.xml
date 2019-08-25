@@ -5,7 +5,202 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     <link>https://laurieboyes.github.io/</link>
     <description>knitting javascript developer software web</description>
-    <pubDate>Tue, 20 Feb 2018 17:26:24 +0000</pubDate>
+    <pubDate>Sun, 25 Aug 2019 21:43:37 +0100</pubDate>
+    
+      <item>
+        <title>Yummy spreadsheets</title>
+        <link>/2019/08/24/yummy-spreadsheets.html</link>
+        <guid isPermaLink="true">/2019/08/24/yummy-spreadsheets.html</guid>
+        <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;Tl;dr&lt;/em&gt;&lt;/strong&gt; &lt;em&gt;I made a little service to create a supermarket-aisle-sorted, quantity-merged shopping list for my spreadsheet of recipes (and you can use it too!)&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;the-pitch&quot;&gt;The pitch&lt;/h3&gt;
+
+&lt;p&gt;There’s no side project more satisfying than one that optimises my day-to-day life in some even very small way.&lt;/p&gt;
+
+&lt;p&gt;It doesn’t matter to me if hundreds of similar solutions already exist and many are well designed and available for free. None of them will ever work in &lt;em&gt;exactly the way I want them to&lt;/em&gt; and integrate seamlessly with my current habits.*&lt;/p&gt;
+
+&lt;p&gt;*&lt;em&gt;I’d like to make it clear to any potential employers that this is a philosophy I apply to side projects but not in my professional work where I aim to be unflinchingly pragmatic.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;i-3-spreadsheets&quot;&gt;I &amp;lt;3 spreadsheets&lt;/h3&gt;
+
+&lt;p&gt;As anyone who’s ever shared a residence with me will tell you, I love a good spreadsheet. Arguably I’ve made spreadsheets to solve problems I don’t really have, but I take a lot of joy in them all the same.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/yummy-spreadsheets/adventure-time-spreadsheet.png&quot; alt=&quot;my adventure time watch record spreadsheet&quot; class=&quot;edgeless-image&quot; /&gt;
+(case in point: my adventure time watch record spreadsheet)&lt;/p&gt;
+
+&lt;p&gt;Perhaps my favourite is my &lt;em&gt;recipe spreadsheet&lt;/em&gt;, which has matured over the past few years, and is a nice way for me to record all the dinners I’ve made that I want to remember for another time (and those I should remember to avoid).&lt;/p&gt;
+
+&lt;h3 id=&quot;inconvenience-food&quot;&gt;Inconvenience food&lt;/h3&gt;
+
+&lt;p&gt;However, every time I want to plan a week of meals I have to do the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Click through to each of my chosen recipes and for each one close on average maybe 4 obstructive adverts and/or privacy policy banners&lt;/li&gt;
+  &lt;li&gt;Find the list of ingredients on each page (not always as easy as you might imagine)&lt;/li&gt;
+  &lt;li&gt;Manually merge ingredient quantities, e.g. 2 onions for 1 meal + 1 onion for another = 3 onions&lt;/li&gt;
+  &lt;li&gt;Manually group the items roughly by location so I’m not zigzagging around the crowded supermarket in red-faced frustration.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;automate-the-boring-stuff&quot;&gt;Automate the boring stuff&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;So&lt;/em&gt; I made a thing which will do the tedious work for me 🎉 There’s a bit of upfront tedium in getting all the ingredients for each meal in a neat format but it’s only once per meal and when it’s in the spirit of saving time in the future, it can even be fun (uh, in my opinion).&lt;/p&gt;
+
+&lt;p&gt;This side project used the following tech:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NodeJS (what else?)&lt;/li&gt;
+  &lt;li&gt;TypeScript (Ooh, type-safety, how novel)&lt;/li&gt;
+  &lt;li&gt;Serverless/AWS Lambda (It’s the future)&lt;/li&gt;
+  &lt;li&gt;The Google sheets API&lt;/li&gt;
+  &lt;li&gt;Some &lt;em&gt;sick&lt;/em&gt; google sheets formulas that I was very pleased with&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’ll go into more detail on how this went later on.&lt;/p&gt;
+
+&lt;h3 id=&quot;sharing-is-caring&quot;&gt;Sharing is caring&lt;/h3&gt;
+
+&lt;p&gt;Mate, you can use this too! If you want.&lt;/p&gt;
+
+&lt;p&gt;Here’s a generic meal spreadsheet I adapted from the one I’ve honed over a period of extended and regular use and have poured lots of love into. You can copy it and make your own:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.google.com/spreadsheets/d/1jxZ8m7SKLJ4_YwjqKP6gg3QKQIGM7Ch9Bnv0Ttu5zkI/edit&quot;&gt;Generic meal spreadsheet&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;And here’s the codez, which you can deploy to your own Amazon Web Services account, if you’re so inclined:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;github.com/laurieboyes/sheets-shop&quot;&gt;github.com/laurieboyes/sheets-shop&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;how-does-it-work-though&quot;&gt;How does it work though?&lt;/h3&gt;
+
+&lt;p&gt;So I have my meals spreadsheet. Every time I try out a new recipe, I add it to the list, along with a load of extra data.*&lt;/p&gt;
+
+&lt;p&gt;*&lt;em&gt;Juuust in case you’re interested, my extra data includes:&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Comments, such as ‘Nice but go easier on the szechuan pepper next time because Soph thought she was having a stroke’&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;When we last had it (being able to sort by recency is good because it makes it easier to find things we’ve not had in a while)&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Whether we typically get any leftovers out of it&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Whether it’s sufficiently low-effort to make on a weeknight&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Whether I can get all the ingredients from the Tesco Express nearby&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Whether it’s vegetarian (I’m not currently a vegetarian but it’s good to when I’m considering entertaining)&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Total time taken (for the rare occasion on which I remember to record it)&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’ve added a new checkbox field to the spreadsheet so I can select which ones I want included in my shopping list:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/yummy-spreadsheets/checkbox.png&quot; alt=&quot;checkbox&quot; class=&quot;edgeless-image&quot; /&gt;
+How neat is that&lt;/p&gt;
+
+&lt;p&gt;On another sheet, I’ve entered my list of ingredients for each of my meals:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/yummy-spreadsheets/ingredients.png&quot; alt=&quot;ingredients&quot; class=&quot;edgeless-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Cool.&lt;/p&gt;
+
+&lt;p&gt;And on yet another sheet (I did warn you about the upfront labour), I have a list of ingredients and their types:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/yummy-spreadsheets/ingredient-types.png&quot; alt=&quot;ingredient-types&quot; class=&quot;edgeless-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Cool cool cool, ready to go.&lt;/p&gt;
+
+&lt;p&gt;When I’m getting ready to head out to the shops, I tick the checkboxes against each of my desired meals, and click the link to the API Gateway that’s in front of my shopping list generator lambda function.&lt;/p&gt;
+
+&lt;p&gt;The lambda function uses the Google Sheets API to ask my spreadsheet what up and what the ingredients are for the meals I want.&lt;/p&gt;
+
+&lt;p&gt;It then munges together all the ingredient quantities, with some degree of tolerance for different units (e.g. it’ll happily merge grams and kilograms), sorts them by their ‘types’ I also defined on the spreadsheet, and returns me a nice convenient list:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/yummy-spreadsheets/finished-list.png&quot; alt=&quot;finished-list&quot; class=&quot;edgeless-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It may not be pretty visually, but a low-stress supermarket experience is a beautiful thing.&lt;/p&gt;
+
+&lt;h3 id=&quot;bits-that-were-interesting-relatively&quot;&gt;Bits that were interesting (relatively)&lt;/h3&gt;
+
+&lt;p&gt;I’ll spare you &lt;em&gt;all&lt;/em&gt; of the details, but certain parts of this side project were particularly fun to do.&lt;/p&gt;
+
+&lt;h4 id=&quot;parsing-the-ingredients&quot;&gt;Parsing the ingredients&lt;/h4&gt;
+
+&lt;p&gt;I needed a way of entering ingredients that found a compromise between making them easy to add and making it easy for my list generator to understand them with its hyper-literal robot mind.&lt;/p&gt;
+
+&lt;p&gt;After a small amount of deliberation I settled on a system where the first token (by which I mean all of the characters before the first space) always defines the quantity:&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;highlight&quot;&gt;3cloves&lt;/span&gt; garlic&lt;br /&gt;
+&lt;span class=&quot;highlight&quot;&gt;some&lt;/span&gt; fresh ginger&lt;br /&gt;
+&lt;span class=&quot;highlight&quot;&gt;4&lt;/span&gt; spring onions&lt;br /&gt;
+&lt;span class=&quot;highlight&quot;&gt;1tsp&lt;/span&gt; szechuan peppercorns&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;This system gives the my code a leg up in understanding what’s going on, as it can easily pick out the text before the first space. It’s then a case of using regular expressions to pick out the number and, if there is one, the unit.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/yummy-spreadsheets/ingredients-regex.gif&quot; alt=&quot;ingredients-regex&quot; class=&quot;edgeless-image&quot; /&gt;
+I &lt;em&gt;love&lt;/em&gt; it when I find a good reason to use regular expressions (thanks &lt;a href=&quot;https://regex101.com/&quot;&gt;regex101.com&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;It’s also pretty easy to enter them with my human typing fingers, so it’s a win-win&lt;/p&gt;
+
+&lt;h4 id=&quot;some-sick-google-sheets-formulas-formulae&quot;&gt;Some &lt;em&gt;sick&lt;/em&gt; google sheets formulas (formulae?)&lt;/h4&gt;
+
+&lt;p&gt;This project definitely stretched my spreadsheet formula skills and it was always with a mixture of pride and relief when I finally got each of these working.&lt;/p&gt;
+
+&lt;p&gt;Sick formula number 1: Retrieve the value of the checkbox on the meals sheet to copy it onto the ingredients sheet (for slightly easier Google Sheets API querying)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=VLOOKUP(G1, INDIRECT(&quot;The other spreadsheet!A:B&quot;), 2)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/yummy-spreadsheets/checkbox-copy-formula.gif&quot; alt=&quot;checkbox-copy-formula&quot; class=&quot;edgeless-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Sick formula number 2: Conditional formatting to indicate if a selected recipe doesn’t have an entry in the ingredients sheet:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=AND(B1 = TRUE,COUNTIF(INDIRECT(&quot;'Ingredients'!1:1&quot;),A1) &amp;lt;= 0)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/yummy-spreadsheets/no-ingreeds-formula.png&quot; alt=&quot;no-ingreeds-formula&quot; class=&quot;edgeless-image&quot; /&gt;
+Red means &lt;em&gt;danger&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sick formula number 3: Conditional formatting to indicate when an ingredient doesn’t have a category defined on the Ingredient types sheet:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=AND(NOT(ISBLANK(H4)),COUNTIF(INDIRECT(&quot;'Ingredient types'!A:A&quot;),RIGHT(H4,LEN(H4) - FIND(&quot; &quot;, H4))) &amp;lt;= 0)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/yummy-spreadsheets/no-type-formula.png&quot; alt=&quot;no-type-formula&quot; class=&quot;edgeless-image&quot; /&gt;
+The consequences of this are just that it won’t be grouped together with its collocated ingredients in the resulting list, so this orangey yellow colour will do for severity.&lt;/p&gt;
+
+&lt;h3 id=&quot;talking-tech&quot;&gt;Talking tech&lt;/h3&gt;
+
+&lt;p&gt;Here are my thoughts, feelings, and motivations around the tech choices I made for this.&lt;/p&gt;
+
+&lt;h4 id=&quot;typescript&quot;&gt;TypeScript&lt;/h4&gt;
+
+&lt;p&gt;The first time I encountered TypeScript was in December 2016 when one of my favourite colleagues used it to write a new service as his final contribution before departing the company. When I subsequently came to maintaining it, I was overcome with frustration and disbelief at how difficult I was finding it to make my simple changes. He told me later that one day we’d all see the light, and it’s important to me that he never finds out that he was right and that these days I actually think it’s super useful.&lt;/p&gt;
+
+&lt;p&gt;The usefulness of type safety stole up on me gradually. Having made the decision a couple of years into my career to reject Java and all its mad verbosity for the free-and-easy alternative that was JavaScript, I had come to see static typing as a hangover from a less ✨agile ✨time.&lt;/p&gt;
+
+&lt;p&gt;But then more recently I found myself encountering bugs and thinking ‘dang, I should have written a unit test to check that’ or ‘dang, I should have put some defensive type checks in for those function parameters’, and then it occurred to me that &lt;em&gt;instead&lt;/em&gt; I could do what lots of other JavaScript fans are doing these days and write in TypeScript.&lt;/p&gt;
+
+&lt;p&gt;A turning point for me was when I heard that you can write TypeScript but still keep it loosey goosey by allowing for ‘implicit any’ (‘any’ as in ‘anything goes’) so you didn’t have to actually write any type definitions if you don’t want to, and you can add them later where you feel they’ll be most useful.&lt;/p&gt;
+
+&lt;p&gt;This is how I approached it in this project and it was great. I ended up writing just a few types but they were very helpful. I really like the fact that if I want to add a new property to a type, I can update an interface and it’ll immediately tell me everywhere in the project I need to update the code that uses it. It’s like really low-rent magic.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(In the n months since I wrote this system/blog though, my TypeScript usage has evolved and I’ve done away with implicit any)&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;serverless-framework--aws-lambda&quot;&gt;Serverless framework + AWS Lambda&lt;/h4&gt;
+
+&lt;p&gt;I absolutely love working with serverless stuff now. It just feels so easy to get stuff going.&lt;/p&gt;
+
+&lt;p&gt;A big part of this is &lt;a href=&quot;https://serverless.com/framework/docs/getting-started/&quot;&gt;the Serverless framework&lt;/a&gt;, which is a properly good framework for deploying cloud functions and configuring event sources such as API Gateways and time schedules with super easy config. I’m not exaggerating. I love it.&lt;/p&gt;
+
+&lt;p&gt;AWS Lambda got even better in April 2018 (shortly before I wrote this system) when it started allowing you to run stuff in Node 8.10, opening the door to my new favourite syntactic sweeties, &lt;code class=&quot;highlighter-rouge&quot;&gt;async&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;await&lt;/code&gt;, which made for some very neat promise-based asynchronous code.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-google-sheets-rest-api&quot;&gt;The Google Sheets REST API&lt;/h4&gt;
+
+&lt;p&gt;I’m glad I chose to go with the sheets API route. The alternative was to write a script in the Google Sheets script editor and dumping the results into another sheet. I have had a go at this sort of thing before but found it a bit of an uphill struggle, and it leaves no room for nice unit tests or TypeScript or whatever.&lt;/p&gt;
+
+&lt;p&gt;The API is fairly intuitive to use and very nicely documented (I’m sure if you’re interested you’ll google it but here are the Google Sheets REST API docs anyway).&lt;/p&gt;
+
+&lt;h3 id=&quot;bon-appétit&quot;&gt;Bon appétit&lt;/h3&gt;
+
+&lt;p&gt;In conclusion, this was a fun mini project and I’ll be making use of its fruits for many years to come. Hooray!&lt;/p&gt;
+
+&lt;p&gt;As I mentioned, if you wanted to try and integrate this approach into your own life, I’ve made my code and my spreadsheet template (with all those juicy formulas) available for all. Find them in the &lt;a href=&quot;#sharing-is-caring&quot;&gt;Sharing is caring section&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 24 Aug 2019 21:54:00 +0100</pubDate>
+      </item>
     
       <item>
         <title>Dusting off old language skills and going native with Android (temporarily)</title>
@@ -393,11 +588,11 @@
  */&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getImageData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;//Create a canvas in memory that we can use to get the pattern image data&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'canvas'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;naturalWidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;height&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;naturalHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'2d'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;2d&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;drawImage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getImageData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;naturalWidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;naturalHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
