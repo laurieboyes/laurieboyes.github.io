@@ -5,7 +5,16 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     <link>https://laurieboyes.github.io/</link>
     <description>knitting javascript developer software web</description>
-    <pubDate>Sun, 25 Aug 2019 21:43:37 +0100</pubDate>
+    <pubDate>Sat, 06 Jun 2020 12:55:38 +0100</pubDate>
+    
+      <item>
+        <title>Living the type-safe, well-documented REST API dream with TypeScript + Fastify</title>
+        <link>/2020/06/06/living-the-type-safe-well-documented-rest-api-dream-with-typescript-fastify.html</link>
+        <guid isPermaLink="true">/2020/06/06/living-the-type-safe-well-documented-rest-api-dream-with-typescript-fastify.html</guid>
+        <description>&lt;p&gt;I wrote this post for the OVO Energy Tech blog and you can find it here: &lt;a href=&quot;https://tech.ovoenergy.com/living-the-type-safe-well-documented-rest-api-dream-with-typescript-fastify/&quot;&gt;Living the type-safe, well-documented REST API dream with TypeScript + Fastify&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 06 Jun 2020 12:12:00 +0100</pubDate>
+      </item>
     
       <item>
         <title>Yummy spreadsheets</title>
