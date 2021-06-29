@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>CSS for img tags that look like custom emojis | Laurie Boyes codes and sometimes knits</title>
+	<meta name="description" content="Tl;dr some css to make inlined img tags look like custom emojis">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="/2021/06/29/css-for-img-tags-that-look-like-custom-emojis.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="Laurie Boyes codes and sometimes knits" href="/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js"></script>
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/">
+			<img class="avatar" src="https://secure.gravatar.com/avatar/e7d2c83b29f800e81a82686df380fe41?s=100" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/">Laurie Boyes codes and sometimes knits</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/tags.html">
+					tags
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled  -->
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/laurieboyes" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/LaurieBoyes" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+            
+            <!-- Search bar -->
+            
+		</ul>
+	</nav>
+    
+</header>
+
+    <div class="content">
+      <article class="has-feature-image">
+  
+    <div class="feature-image" style="background-image: url('/assets/img/2021-06-29-css-for-img-tags-that-look-like-custom-emojis/cover.png')"></div>
+  
+  <header>
+    <h1 class="title">CSS for img tags that look like custom emojis</h1>
+    
+    <p class="meta">
+      June 29, 2021
+      
+    </p>
+  </header>
+  <section class="post-content"><p><strong><em>Tl;dr</em></strong> <em>some css to make inlined img tags look like custom emojis</em></p>
+
+<h3 id="the-problem">The problem</h3>
+
+<p>You want to copy messages from slack into an html page, including the emojis. If your slack messages only contain standard emojis, this is easy, but if you want to include messages with <em>custom</em> emojis, this is slightly less easy.</p>
+
+<h3 id="why">Why?</h3>
+
+<p>Maybe you want to preserve slack messages in some sort of ‘hall of fame’ website. It’s a weird thing to want to do, but at least one person has found themselves in that situation (it’s me, I’m the person).</p>
+
+<h3 id="ok-ill-bite-give-me-the-codez">Ok I’ll bite, give me the codez</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;style&gt;</span>
+   <span class="nc">.emoji</span> <span class="p">{</span>
+      
+       <span class="c">/* use em for sizing so that your emoji scales with your font size ✨ */</span>
+       <span class="nl">height</span><span class="p">:</span> <span class="m">1.3em</span><span class="p">;</span>
+ 
+       <span class="c">/* this aligns the emoji vertically in such a way that it looks pretty much like it looks on slack ✨ */</span>
+       <span class="nl">vertical-align</span><span class="p">:</span> <span class="nb">text-bottom</span><span class="p">;</span>
+ 
+   <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+ 
+<span class="nt">&lt;p&gt;</span>
+   hey check it out
+   <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"emoji"</span> <span class="na">src=</span><span class="s">"https://emoji-town.org/wizard.gif"</span> <span class="nt">/&gt;</span>
+   it feels just like slack
+   <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"emoji"</span> <span class="na">src=</span><span class="s">"https://emoji-town.org/slack.png"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<style>
+    img.emoji {
+        
+        /* use em for sizing so that your emoji scales with your font size ✨ */
+        height: 1.3em;
+
+        /* this aligns the emoji vertically in such a way that it looks pretty much like it looks on slack ✨ */
+        vertical-align: text-bottom;
+
+        display: inline-block;
+
+    }
+</style>
+
+<p style="margin-top: 50px;">
+    hey check it out <img class="emoji" src="/assets/img/2021-06-29-css-for-img-tags-that-look-like-custom-emojis/emoji-party-wizard.gif" /> it feels just like slack <img class="emoji" src="/assets/img/2021-06-29-css-for-img-tags-that-look-like-custom-emojis/emoji-slack.png" />
+</p>
+
+<h3 id="cool-i-guess">Cool I guess</h3>
+
+<p>That’s all for now. If you’re hungry for more, have a browse of the archive. See you next year!</p>
+</section>
+  
+<footer>
+  <div class="tags">
+    
+    <a class="tag" href="/tags#web">#web</a>
+    
+  </div>
+</footer>
+
+
+</article>
+
+<!-- Disqus -->
+
+
+<!-- Post navigation -->
+
+
+    </div>
+    
+<script src="/assets/js/katex_init.js"></script>
+
+
+
+<footer class="site-footer">
+	<p class="text">Laurie Boyes codes and sometimes knits © 2021. Powered by <a href="https://jekyllrb.com/">Jekyll</a> and adapted from <a href="https://github.com/rohanchandra/type-theme">Type Theme</a>
+</p>
+</footer>
+
+
+  </body>
+</html>

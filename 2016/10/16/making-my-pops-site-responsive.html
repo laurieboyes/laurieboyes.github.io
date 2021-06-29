@@ -73,6 +73,8 @@
 			
 			
 			
+			
+			
 			<!-- Social icons from Font Awesome, if enabled  -->
 			
 
@@ -139,7 +141,7 @@
     <div class="content">
       <article class="has-feature-image">
   
-    <div class="feature-image" style="background-image: url('https://static.lrnk.co.uk/blog-content/popsite/popsite-cover.png')"></div>
+    <div class="feature-image" style="background-image: url('http://static.lrnk.co.uk/blog-content/popsite/popsite-cover.png')"></div>
   
   <header>
     <h1 class="title">Making my pop's site responsive</h1>
@@ -156,17 +158,16 @@
 <h3 id="enhance">Enhance!</h3>
 
 <p>First thing I did was stick in a viewport meta tag:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
 </code></pre></div></div>
 
 <p>Before (<em>squint</em>):</p>
 
-<p><img src="https://static.lrnk.co.uk/blog-content/popsite/meta-before-framed.png#mobile-framed" alt="meta before" /></p>
+<p><img src="http://static.lrnk.co.uk/blog-content/popsite/meta-before-framed.png#mobile-framed" alt="meta before" /></p>
 
 <p>After:</p>
 
-<p><img src="https://static.lrnk.co.uk/blog-content/popsite/meta-after-framed.png#mobile-framed" alt="meta before" /></p>
+<p><img src="http://static.lrnk.co.uk/blog-content/popsite/meta-after-framed.png#mobile-framed" alt="meta before" /></p>
 
 <p>Although at first glance this does arguably look like a worse experience, the viewport meta tag is very useful for responsive sites. It saves the browser from having to guess at how wide to render the page, ensuring that it’s rendered for the device’s screen width, meaning that the text will be big enough to read.</p>
 
@@ -180,48 +181,48 @@
 
 <p>Before (scrolling over awkwardly):</p>
 
-<p><img src="https://static.lrnk.co.uk/blog-content/popsite/stacking-before-framed.png#mobile-framed" alt="stacking before" /></p>
+<p><img src="http://static.lrnk.co.uk/blog-content/popsite/stacking-before-framed.png#mobile-framed" alt="stacking before" /></p>
 
 <p>After (scrolling down with a natural ease):</p>
 
-<p><img src="https://static.lrnk.co.uk/blog-content/popsite/stacking-after-framed.png#mobile-framed" alt="stacking after" /></p>
+<p><img src="http://static.lrnk.co.uk/blog-content/popsite/stacking-after-framed.png#mobile-framed" alt="stacking after" /></p>
 
-<p>First thing was to remove the existing absolute positioning of the <code class="highlighter-rouge">.content</code> and <code class="highlighter-rouge">.sidebar</code> components and set them both to 100% width, so that by default they’d stack up one on top of the other.</p>
+<p>First thing was to remove the existing absolute positioning of the <code class="language-plaintext highlighter-rouge">.content</code> and <code class="language-plaintext highlighter-rouge">.sidebar</code> components and set them both to 100% width, so that by default they’d stack up one on top of the other.</p>
 
-<p>Second was to restore the original layout on wider devices by floating the two left, and, within a <code class="highlighter-rouge">min-width</code> media query, setting their widths proportionally. I left room for a fixed-width margin by making use of <a href="https://developer.mozilla.org/en/docs/Web/CSS/calc">calc()</a>.</p>
+<p>Second was to restore the original layout on wider devices by floating the two left, and, within a <code class="language-plaintext highlighter-rouge">min-width</code> media query, setting their widths proportionally. I left room for a fixed-width margin by making use of <a href="https://developer.mozilla.org/en/docs/Web/CSS/calc">calc()</a>.</p>
 
 <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.content</span> <span class="p">{</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-  <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+   <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+   <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.sidebar</span> <span class="p">{</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-  <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+   <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+   <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">700px</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nc">.content</span> <span class="p">{</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="m">75%</span> <span class="n">-</span> <span class="m">10px</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="nc">.sidebar</span> <span class="p">{</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="m">25%</span> <span class="n">-</span> <span class="m">10px</span><span class="p">);</span>
-    <span class="nl">margin-left</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
-  <span class="p">}</span>
+   <span class="nc">.content</span> <span class="p">{</span>
+      <span class="nl">width</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="m">75%</span> <span class="n">-</span> <span class="m">10px</span><span class="p">);</span>
+   <span class="p">}</span>
+   <span class="nc">.sidebar</span> <span class="p">{</span>
+      <span class="nl">width</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="m">25%</span> <span class="n">-</span> <span class="m">10px</span><span class="p">);</span>
+      <span class="nl">margin-left</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
 <p>The result looks like this on desktop:</p>
 
-<p><img src="https://static.lrnk.co.uk/blog-content/popsite/sidebar%20desktop.png" alt="sidebar desktop" /></p>
+<p><img src="http://static.lrnk.co.uk/blog-content/popsite/sidebar%20desktop.png" alt="sidebar desktop" /></p>
 
 <p>And this on mobile:</p>
 
-<p><img src="https://static.lrnk.co.uk/blog-content/popsite/sidebar%20mobile.png" alt="sidebar mobile" /></p>
+<p><img src="http://static.lrnk.co.uk/blog-content/popsite/sidebar%20mobile.png" alt="sidebar mobile" /></p>
 
 <p>And this on both (bonus gif):</p>
 
-<p><img src="https://static.lrnk.co.uk/blog-content/popsite/reposiveness.gif" alt="responiveness" /></p>
+<p><img src="http://static.lrnk.co.uk/blog-content/popsite/reposiveness.gif" alt="responiveness" /></p>
 
 <p>Hooray.</p>
 
@@ -231,7 +232,7 @@
 
 <p>However, mobile users would find it wanting. To maintain the side-by-side positioning on a smaller screen you’re faced with a choice of horizontal scrolling or squished up boxes that don’t fit the link text in and are hard to press (certainly with my big chunky gamecube-reared thumbs).</p>
 
-<p><img src="https://static.lrnk.co.uk/blog-content/popsite/menu-squished-framed2.png#mobile-framed" alt="menu squished" /></p>
+<p><img src="http://static.lrnk.co.uk/blog-content/popsite/menu-squished-framed2.png#mobile-framed" alt="menu squished" /></p>
 
 <p>Additionally, the lack of hover state on a touch device meant that, to mobile users, the submenu links were inaccessible.</p>
 
@@ -241,13 +242,13 @@
 
 <p>First I set up the list of top-level-menu links and styled it up similarly to the existing menu, the main exception being that each link would stack vertically and occupy 100% of the page width.</p>
 
-<p><img src="https://static.lrnk.co.uk/blog-content/popsite/menu-stacked-framed.png#mobile-framed" alt="menu squished" /></p>
+<p><img src="http://static.lrnk.co.uk/blog-content/popsite/menu-stacked-framed.png#mobile-framed" alt="menu squished" /></p>
 
 <h4 id="step-2---digging-deep">Step 2 - digging deep</h4>
 
 <p>I set up the sub nav in a similar way, except within the main links. I made an open/close toggle button that would change the height property of the top level link, effectively hiding and showing the submenu.</p>
 
-<p><img src="https://static.lrnk.co.uk/blog-content/popsite/menu-expanding-framed2.gif#mobile-framed" alt="menu squished" /></p>
+<p><img src="http://static.lrnk.co.uk/blog-content/popsite/menu-expanding-framed2.gif#mobile-framed" alt="menu squished" /></p>
 
 <p>The animation is important, as it subtly provides valuable information for the user about where parts of the page have moved to, avoiding the jarring effect that can occur when elements snap instantly into different positions.</p>
 
@@ -255,15 +256,15 @@
 
 <h4 id="step-3---the-big-reveal">Step 3 - the big reveal</h4>
 
-<p>To save valuable mobile-device screen real estate, I collapsed the menu into an all-consuming ‘menu’ item, having it closed by default. It was also important to animate this open and closed, which meant a bit more height querying, but this is no big deal. The menu is closed by default, meaning the user has to do less scrolling before getting to the content.</p>
+<p>To save valuable mobile-device screen real estate, I collapsed the menu into an all-consuming ‘menu’ item, having it closed by default.  It was also important to animate this open and closed, which meant a bit more height querying, but this is no big deal. The menu is closed by default, meaning the user has to do less scrolling before getting to the content.</p>
 
-<p><img src="https://static.lrnk.co.uk/blog-content/popsite/menu-expanding-whole-framed.gif#mobile-framed" alt="menu squished" /></p>
+<p><img src="http://static.lrnk.co.uk/blog-content/popsite/menu-expanding-whole-framed.gif#mobile-framed" alt="menu squished" /></p>
 
 <h4 id="step-4---you-are-here">Step 4 - you are here</h4>
 
 <p>I don’t think navigation tools are all that useful if they can’t tell you where you are in addition to where you can go. I made it so that on page load, the current menu item is highlighted to waypoint the current page, and, by necessity, that if the current page is within a submenu, that submenu is expanded on page load.</p>
 
-<p><img src="https://static.lrnk.co.uk/blog-content/popsite/menu-highlight-framed.png#mobile-framed" alt="menu highlighted" /></p>
+<p><img src="http://static.lrnk.co.uk/blog-content/popsite/menu-highlight-framed.png#mobile-framed" alt="menu highlighted" /></p>
 
 <h4 id="show-me-the-codez">Show me the codez</h4>
 
@@ -300,7 +301,7 @@
 
 
 <footer class="site-footer">
-	<p class="text">Laurie Boyes codes and sometimes knits © 2020. Powered by <a href="https://jekyllrb.com/">Jekyll</a> and adapted from <a href="https://github.com/rohanchandra/type-theme">Type Theme</a>
+	<p class="text">Laurie Boyes codes and sometimes knits © 2021. Powered by <a href="https://jekyllrb.com/">Jekyll</a> and adapted from <a href="https://github.com/rohanchandra/type-theme">Type Theme</a>
 </p>
 </footer>
 

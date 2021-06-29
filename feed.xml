@@ -5,15 +5,76 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     <link>https://laurieboyes.github.io/</link>
     <description>knitting javascript developer software web</description>
-    <pubDate>Sun, 06 Sep 2020 09:49:38 +0100</pubDate>
+    <pubDate>Tue, 29 Jun 2021 21:57:33 +0100</pubDate>
+    
+      <item>
+        <title>CSS for img tags that look like custom emojis</title>
+        <link>/2021/06/29/css-for-img-tags-that-look-like-custom-emojis.html</link>
+        <guid isPermaLink="true">/2021/06/29/css-for-img-tags-that-look-like-custom-emojis.html</guid>
+        <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;Tl;dr&lt;/em&gt;&lt;/strong&gt; &lt;em&gt;some css to make inlined img tags look like custom emojis&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;the-problem&quot;&gt;The problem&lt;/h3&gt;
+
+&lt;p&gt;You want to copy messages from slack into an html page, including the emojis. If your slack messages only contain standard emojis, this is easy, but if you want to include messages with &lt;em&gt;custom&lt;/em&gt; emojis, this is slightly less easy.&lt;/p&gt;
+
+&lt;h3 id=&quot;why&quot;&gt;Why?&lt;/h3&gt;
+
+&lt;p&gt;Maybe you want to preserve slack messages in some sort of ‘hall of fame’ website. It’s a weird thing to want to do, but at least one person has found themselves in that situation (it’s me, I’m the person).&lt;/p&gt;
+
+&lt;h3 id=&quot;ok-ill-bite-give-me-the-codez&quot;&gt;Ok I’ll bite, give me the codez&lt;/h3&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nc&quot;&gt;.emoji&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      
+       &lt;span class=&quot;c&quot;&gt;/* use em for sizing so that your emoji scales with your font size ✨ */&lt;/span&gt;
+       &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1.3em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ 
+       &lt;span class=&quot;c&quot;&gt;/* this aligns the emoji vertically in such a way that it looks pretty much like it looks on slack ✨ */&lt;/span&gt;
+       &lt;span class=&quot;nl&quot;&gt;vertical-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;text-bottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ 
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
+ 
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;
+   hey check it out
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;emoji&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://emoji-town.org/wizard.gif&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+   it feels just like slack
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;emoji&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://emoji-town.org/slack.png&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;style&gt;
+    img.emoji {
+        
+        /* use em for sizing so that your emoji scales with your font size ✨ */
+        height: 1.3em;
+
+        /* this aligns the emoji vertically in such a way that it looks pretty much like it looks on slack ✨ */
+        vertical-align: text-bottom;
+
+        display: inline-block;
+
+    }
+&lt;/style&gt;
+
+&lt;p style=&quot;margin-top: 50px;&quot;&gt;
+    hey check it out &lt;img class=&quot;emoji&quot; src=&quot;/assets/img/2021-06-29-css-for-img-tags-that-look-like-custom-emojis/emoji-party-wizard.gif&quot; /&gt; it feels just like slack &lt;img class=&quot;emoji&quot; src=&quot;/assets/img/2021-06-29-css-for-img-tags-that-look-like-custom-emojis/emoji-slack.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&quot;cool-i-guess&quot;&gt;Cool I guess&lt;/h3&gt;
+
+&lt;p&gt;That’s all for now. If you’re hungry for more, have a browse of the archive. See you next year!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 29 Jun 2021 10:54:00 +0100</pubDate>
+      </item>
     
       <item>
         <title>Living the type-safe, well-documented REST API dream with TypeScript + Fastify</title>
-        <link>/2020/06/06/living-the-type-safe-well-documented-rest-api-dream-with-typescript-fastify.html</link>
-        <guid isPermaLink="true">/2020/06/06/living-the-type-safe-well-documented-rest-api-dream-with-typescript-fastify.html</guid>
+        <link>/2020/06/06/type-safe-well-documented-rest-api.html</link>
+        <guid isPermaLink="true">/2020/06/06/type-safe-well-documented-rest-api.html</guid>
         <description>&lt;p&gt;I wrote this post for the OVO Energy Tech blog and you can find it here: &lt;a href=&quot;https://tech.ovoenergy.com/living-the-type-safe-well-documented-rest-api-dream-with-typescript-fastify/&quot;&gt;Living the type-safe, well-documented REST API dream with TypeScript + Fastify&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Sat, 06 Jun 2020 12:12:00 +0100</pubDate>
+        <pubDate>Sat, 06 Jun 2020 21:54:00 +0100</pubDate>
       </item>
     
       <item>
@@ -149,14 +210,14 @@ I &lt;em&gt;love&lt;/em&gt; it when I find a good reason to use regular expressi
 
 &lt;p&gt;Sick formula number 1: Retrieve the value of the checkbox on the meals sheet to copy it onto the ingredients sheet (for slightly easier Google Sheets API querying)&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=VLOOKUP(G1, INDIRECT(&quot;The other spreadsheet!A:B&quot;), 2)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=VLOOKUP(G1, INDIRECT(&quot;The other spreadsheet!A:B&quot;), 2)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/yummy-spreadsheets/checkbox-copy-formula.gif&quot; alt=&quot;checkbox-copy-formula&quot; class=&quot;edgeless-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Sick formula number 2: Conditional formatting to indicate if a selected recipe doesn’t have an entry in the ingredients sheet:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=AND(B1 = TRUE,COUNTIF(INDIRECT(&quot;'Ingredients'!1:1&quot;),A1) &amp;lt;= 0)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=AND(B1 = TRUE,COUNTIF(INDIRECT(&quot;'Ingredients'!1:1&quot;),A1) &amp;lt;= 0)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/yummy-spreadsheets/no-ingreeds-formula.png&quot; alt=&quot;no-ingreeds-formula&quot; class=&quot;edgeless-image&quot; /&gt;
@@ -164,7 +225,7 @@ Red means &lt;em&gt;danger&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Sick formula number 3: Conditional formatting to indicate when an ingredient doesn’t have a category defined on the Ingredient types sheet:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=AND(NOT(ISBLANK(H4)),COUNTIF(INDIRECT(&quot;'Ingredient types'!A:A&quot;),RIGHT(H4,LEN(H4) - FIND(&quot; &quot;, H4))) &amp;lt;= 0)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=AND(NOT(ISBLANK(H4)),COUNTIF(INDIRECT(&quot;'Ingredient types'!A:A&quot;),RIGHT(H4,LEN(H4) - FIND(&quot; &quot;, H4))) &amp;lt;= 0)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/yummy-spreadsheets/no-type-formula.png&quot; alt=&quot;no-type-formula&quot; class=&quot;edgeless-image&quot; /&gt;
@@ -194,7 +255,7 @@ The consequences of this are just that it won’t be grouped together with its c
 
 &lt;p&gt;A big part of this is &lt;a href=&quot;https://serverless.com/framework/docs/getting-started/&quot;&gt;the Serverless framework&lt;/a&gt;, which is a properly good framework for deploying cloud functions and configuring event sources such as API Gateways and time schedules with super easy config. I’m not exaggerating. I love it.&lt;/p&gt;
 
-&lt;p&gt;AWS Lambda got even better in April 2018 (shortly before I wrote this system) when it started allowing you to run stuff in Node 8.10, opening the door to my new favourite syntactic sweeties, &lt;code class=&quot;highlighter-rouge&quot;&gt;async&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;await&lt;/code&gt;, which made for some very neat promise-based asynchronous code.&lt;/p&gt;
+&lt;p&gt;AWS Lambda got even better in April 2018 (shortly before I wrote this system) when it started allowing you to run stuff in Node 8.10, opening the door to my new favourite syntactic sweeties, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;async&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;await&lt;/code&gt;, which made for some very neat promise-based asynchronous code.&lt;/p&gt;
 
 &lt;h4 id=&quot;the-google-sheets-rest-api&quot;&gt;The Google Sheets REST API&lt;/h4&gt;
 
@@ -259,7 +320,7 @@ The consequences of this are just that it won’t be grouped together with its c
 
 &lt;h4 id=&quot;use-android-studios-layout-editor-to-make-a-simple-ui&quot;&gt;Use Android Studio’s layout editor to make a simple UI&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/android/layout.png?cachebust=1&quot; alt=&quot;layout&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/android/layout.png?cachebust=1&quot; alt=&quot;layout&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;(And it is very simple)&lt;/p&gt;
 
@@ -288,7 +349,7 @@ The consequences of this are just that it won’t be grouped together with its c
 
 &lt;p&gt;The other week, I took part in the FT’s annual internal hackathon. My team and I decided to play with our idea of bringing video-game-style ‘achievements’ into FT.com, with the aim of encouraging exploration and discovery of the site. It was great fun! Check it out:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/lazy-hackathon/poliwag-screenshot-min.png&quot; alt=&quot;poliwag screenshot&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/lazy-hackathon/poliwag-screenshot-min.png&quot; alt=&quot;poliwag screenshot&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I got to try out some cringe-inducingly sloppy but highly effective techniques for quickly building rich prototypes. I’m not sure I should really be proud of them but I am.&lt;/p&gt;
 
@@ -335,7 +396,7 @@ The consequences of this are just that it won’t be grouped together with its c
 
 &lt;p&gt;As a cheeky bonus, we had our tracking code flash up a &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/notification&quot;&gt;web notification&lt;/a&gt; to show achievement progress when we saved an event. Pretty snazzy.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/lazy-hackathon/notification.gif&quot; alt=&quot;notification&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/lazy-hackathon/notification.gif&quot; alt=&quot;notification&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;displaying-the-achievements-page-with-the-chrome-extension-again&quot;&gt;Displaying the achievements page with… the Chrome extension again!&lt;/h3&gt;
 
@@ -360,6 +421,7 @@ The consequences of this are just that it won’t be grouped together with its c
 &lt;p&gt;Here’s the codez for our thing if you’ll forgive the mess: &lt;a href=&quot;https://github.com/laurieboyes/poliwag&quot;&gt;github.com/laurieboyes/poliwag&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Thanks to &lt;a href=&quot;https://twitter.com/upthebuzzard&quot;&gt;@upthebuzzard&lt;/a&gt; for organising, to &lt;a href=&quot;https://twitter.com/marawanot&quot;&gt;@marawanot&lt;/a&gt; for being the other half of my team’s development effort, and to Emma for some excellent design work. A final thank you to &lt;a href=&quot;https://github.com/tburch&quot;&gt;Tristan Birch&lt;/a&gt; for maintaining &lt;a href=&quot;https://jsonblob.com/&quot;&gt;jsonblob.com&lt;/a&gt;.&lt;/p&gt;
+
 </description>
         <pubDate>Mon, 02 Oct 2017 06:51:34 +0100</pubDate>
       </item>
@@ -375,17 +437,16 @@ The consequences of this are just that it won’t be grouped together with its c
 &lt;h3 id=&quot;enhance&quot;&gt;Enhance!&lt;/h3&gt;
 
 &lt;p&gt;First thing I did was stick in a viewport meta tag:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&amp;gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Before (&lt;em&gt;squint&lt;/em&gt;):&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/popsite/meta-before-framed.png#mobile-framed&quot; alt=&quot;meta before&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/meta-before-framed.png#mobile-framed&quot; alt=&quot;meta before&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;After:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/popsite/meta-after-framed.png#mobile-framed&quot; alt=&quot;meta before&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/meta-after-framed.png#mobile-framed&quot; alt=&quot;meta before&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Although at first glance this does arguably look like a worse experience, the viewport meta tag is very useful for responsive sites. It saves the browser from having to guess at how wide to render the page, ensuring that it’s rendered for the device’s screen width, meaning that the text will be big enough to read.&lt;/p&gt;
 
@@ -399,48 +460,48 @@ The consequences of this are just that it won’t be grouped together with its c
 
 &lt;p&gt;Before (scrolling over awkwardly):&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/popsite/stacking-before-framed.png#mobile-framed&quot; alt=&quot;stacking before&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/stacking-before-framed.png#mobile-framed&quot; alt=&quot;stacking before&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;After (scrolling down with a natural ease):&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/popsite/stacking-after-framed.png#mobile-framed&quot; alt=&quot;stacking after&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/stacking-after-framed.png#mobile-framed&quot; alt=&quot;stacking after&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;First thing was to remove the existing absolute positioning of the &lt;code class=&quot;highlighter-rouge&quot;&gt;.content&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;.sidebar&lt;/code&gt; components and set them both to 100% width, so that by default they’d stack up one on top of the other.&lt;/p&gt;
+&lt;p&gt;First thing was to remove the existing absolute positioning of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.content&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.sidebar&lt;/code&gt; components and set them both to 100% width, so that by default they’d stack up one on top of the other.&lt;/p&gt;
 
-&lt;p&gt;Second was to restore the original layout on wider devices by floating the two left, and, within a &lt;code class=&quot;highlighter-rouge&quot;&gt;min-width&lt;/code&gt; media query, setting their widths proportionally. I left room for a fixed-width margin by making use of &lt;a href=&quot;https://developer.mozilla.org/en/docs/Web/CSS/calc&quot;&gt;calc()&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Second was to restore the original layout on wider devices by floating the two left, and, within a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;min-width&lt;/code&gt; media query, setting their widths proportionally. I left room for a fixed-width margin by making use of &lt;a href=&quot;https://developer.mozilla.org/en/docs/Web/CSS/calc&quot;&gt;calc()&lt;/a&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.content&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;nl&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;nc&quot;&gt;.sidebar&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;nl&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;@media&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;min-width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;700px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nc&quot;&gt;.content&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;75%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nc&quot;&gt;.sidebar&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;25%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;margin-left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;nc&quot;&gt;.content&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;75%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;nc&quot;&gt;.sidebar&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;25%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;margin-left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The result looks like this on desktop:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/popsite/sidebar%20desktop.png&quot; alt=&quot;sidebar desktop&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/sidebar%20desktop.png&quot; alt=&quot;sidebar desktop&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;And this on mobile:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/popsite/sidebar%20mobile.png&quot; alt=&quot;sidebar mobile&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/sidebar%20mobile.png&quot; alt=&quot;sidebar mobile&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;And this on both (bonus gif):&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/popsite/reposiveness.gif&quot; alt=&quot;responiveness&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/reposiveness.gif&quot; alt=&quot;responiveness&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hooray.&lt;/p&gt;
 
@@ -450,7 +511,7 @@ The consequences of this are just that it won’t be grouped together with its c
 
 &lt;p&gt;However, mobile users would find it wanting. To maintain the side-by-side positioning on a smaller screen you’re faced with a choice of horizontal scrolling or squished up boxes that don’t fit the link text in and are hard to press (certainly with my big chunky gamecube-reared thumbs).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/popsite/menu-squished-framed2.png#mobile-framed&quot; alt=&quot;menu squished&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/menu-squished-framed2.png#mobile-framed&quot; alt=&quot;menu squished&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Additionally, the lack of hover state on a touch device meant that, to mobile users, the submenu links were inaccessible.&lt;/p&gt;
 
@@ -460,13 +521,13 @@ The consequences of this are just that it won’t be grouped together with its c
 
 &lt;p&gt;First I set up the list of top-level-menu links and styled it up similarly to the existing menu, the main exception being that each link would stack vertically and occupy 100% of the page width.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/popsite/menu-stacked-framed.png#mobile-framed&quot; alt=&quot;menu squished&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/menu-stacked-framed.png#mobile-framed&quot; alt=&quot;menu squished&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;step-2---digging-deep&quot;&gt;Step 2 - digging deep&lt;/h4&gt;
 
 &lt;p&gt;I set up the sub nav in a similar way, except within the main links. I made an open/close toggle button that would change the height property of the top level link, effectively hiding and showing the submenu.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/popsite/menu-expanding-framed2.gif#mobile-framed&quot; alt=&quot;menu squished&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/menu-expanding-framed2.gif#mobile-framed&quot; alt=&quot;menu squished&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The animation is important, as it subtly provides valuable information for the user about where parts of the page have moved to, avoiding the jarring effect that can occur when elements snap instantly into different positions.&lt;/p&gt;
 
@@ -474,15 +535,15 @@ The consequences of this are just that it won’t be grouped together with its c
 
 &lt;h4 id=&quot;step-3---the-big-reveal&quot;&gt;Step 3 - the big reveal&lt;/h4&gt;
 
-&lt;p&gt;To save valuable mobile-device screen real estate, I collapsed the menu into an all-consuming ‘menu’ item, having it closed by default. It was also important to animate this open and closed, which meant a bit more height querying, but this is no big deal. The menu is closed by default, meaning the user has to do less scrolling before getting to the content.&lt;/p&gt;
+&lt;p&gt;To save valuable mobile-device screen real estate, I collapsed the menu into an all-consuming ‘menu’ item, having it closed by default.  It was also important to animate this open and closed, which meant a bit more height querying, but this is no big deal. The menu is closed by default, meaning the user has to do less scrolling before getting to the content.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/popsite/menu-expanding-whole-framed.gif#mobile-framed&quot; alt=&quot;menu squished&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/menu-expanding-whole-framed.gif#mobile-framed&quot; alt=&quot;menu squished&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;step-4---you-are-here&quot;&gt;Step 4 - you are here&lt;/h4&gt;
 
 &lt;p&gt;I don’t think navigation tools are all that useful if they can’t tell you where you are in addition to where you can go. I made it so that on page load, the current menu item is highlighted to waypoint the current page, and, by necessity, that if the current page is within a submenu, that submenu is expanded on page load.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/popsite/menu-highlight-framed.png#mobile-framed&quot; alt=&quot;menu highlighted&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/popsite/menu-highlight-framed.png#mobile-framed&quot; alt=&quot;menu highlighted&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;show-me-the-codez&quot;&gt;Show me the codez&lt;/h4&gt;
 
@@ -514,32 +575,28 @@ The consequences of this are just that it won’t be grouped together with its c
         <guid isPermaLink="true">/2016/08/10/beneath-this-cool-calm-exterior.html</guid>
         <description>&lt;p&gt;In April 2014, after many opportunities passing by with excuses or genuine poor timing, I finally committed myself to participating in the &lt;a href=&quot;http://ludumdare.com/compo/&quot;&gt;Ludum Dare 48-hour game competition&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;My entry was, uh, pretty weird. The theme, announced at the very start of the 48-hour window late on the Friday evening, was &lt;em&gt;Beneath the surface&lt;/em&gt;. Many people entered underwater themed games, or mining games. I decided that my game would take a look &lt;em&gt;beneath the surface&lt;/em&gt; of my own fragile outward calm.&lt;/p&gt;
+&lt;p&gt;My entry was, uh, pretty weird. The theme, announced at the very start of the 48-hour window late on the Friday evening, was &lt;em&gt;Beneath the surface&lt;/em&gt;. Many people entered underwater themed games, or mining games. I decided that my game would take a look &lt;em&gt;beneath the surface&lt;/em&gt; of  my own fragile outward calm.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/beneath-this-cool-calm/beneath-this-cool-calm.gif&quot; alt=&quot;gameplay gif&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/beneath-this-cool-calm/beneath-this-cool-calm.gif&quot; alt=&quot;gameplay gif&quot; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;play-the-game-beneath-this-cool-calm-exterior&quot;&gt;Play the game: &lt;a href=&quot;https://static.lrnk.co.uk/ludumdare29/&quot;&gt;Beneath this cool, calm exterior&lt;/a&gt;&lt;/h5&gt;
-
-&lt;p&gt;&lt;em&gt;Move: wasd&lt;/em&gt;&lt;br /&gt;
+&lt;h5 id=&quot;play-the-game-beneath-this-cool-calm-exterior&quot;&gt;Play the game: &lt;a href=&quot;http://static.lrnk.co.uk/ludumdare29/&quot;&gt;Beneath this cool, calm exterior&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;em&gt;Move: wasd&lt;/em&gt;&lt;br /&gt; 
 &lt;em&gt;Shoot: arrow keys&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;Start, next level: space bar&lt;/em&gt;&lt;/p&gt;
 
 &lt;h5 id=&quot;view-the-code-githubcomlaurieboyesbeneath-this-cool-calm-exterior&quot;&gt;View the code: &lt;a href=&quot;https://github.com/laurieboyes/beneath-this-cool-calm-exterior&quot;&gt;github.com/laurieboyes/beneath-this-cool-calm-exterior&lt;/a&gt;&lt;/h5&gt;
-
 &lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;h5 id=&quot;view-the-competition-entry-ludum-dare&quot;&gt;View the competition entry: &lt;a href=&quot;http://ludumdare.com/compo/ludum-dare-29/?action=preview&amp;amp;uid=6545&quot;&gt;Ludum Dare&lt;/a&gt;&lt;/h5&gt;
-
 &lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;Fundamentally, it’s a very basic shooter game. The enemies are my insecurities, and some of them spout fun exaggerations on my own internal monologue. When a player collides with an insecurity, they are presented with a picture of my face, moving through an array of increasingly distressed expressions.&lt;/p&gt;
 
 &lt;p&gt;Did I win? No! Of course not. But I was pretty happy with my results. Competing against a not insignificant 2495 entries, I came in 14th place for humour (putting me in the top 1 percent!), 98th for theme, and… less good for everything else:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/beneath-this-cool-calm/results.png&quot; alt=&quot;results&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/beneath-this-cool-calm/results.png&quot; alt=&quot;results&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;the-making-of&quot;&gt;The making of&lt;/h3&gt;
-
 &lt;p&gt;The heavy lifting in the code was done by a 2D game library called &lt;a href=&quot;http://melonjs.org/&quot;&gt;melonJS&lt;/a&gt;. It was very nice to work with and I’d use it again.&lt;/p&gt;
 
 &lt;h4 id=&quot;bom-bom-bom-bom&quot;&gt;Bom bom bom bom&lt;/h4&gt;
@@ -563,10 +620,10 @@ The consequences of this are just that it won’t be grouped together with its c
 &lt;p&gt;The astonishing difference these small changes can make is hard to believe without watching that talk but you get some of the effect in these before and after gifs.&lt;/p&gt;
 
 &lt;p&gt;Pre tweak:
-&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/beneath-this-cool-calm/beneath-old.gif&quot; alt=&quot;before-tweak&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/beneath-this-cool-calm/beneath-old.gif&quot; alt=&quot;before-tweak&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Post tweak:
-&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/beneath-this-cool-calm/beneath-new.gif&quot; alt=&quot;after-tweak&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/beneath-this-cool-calm/beneath-new.gif&quot; alt=&quot;after-tweak&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In conclusion, this was my first timeboxed game/code jam and I enjoyed it a lot and will absolutely commit doing it or something similar again one of these days.&lt;/p&gt;
 </description>
@@ -579,7 +636,7 @@ The consequences of this are just that it won’t be grouped together with its c
         <guid isPermaLink="true">/2016/07/24/mucking-about-with-image-data-in-javascript.html</guid>
         <description>&lt;p&gt;Earlier this year I wrote &lt;em&gt;ScarfParty&lt;/em&gt;, a knitting companion that centred around a dynamic pattern display that changed along with the knitter’s progress. The pattern information was loaded in from a small black and white image. If you’re interested, you can &lt;a href=&quot;/tags.html#the-christmas-fam-scarf&quot;&gt;learn more about my adventures with scarves&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/playing-with-image-data/image-mucking.png&quot; alt=&quot;image mucking&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/playing-with-image-data/image-mucking.png&quot; alt=&quot;image mucking&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This post is about the code behind taking in that image and regurgitating it in a different form that I could play around with.&lt;/p&gt;
 
@@ -591,98 +648,46 @@ The consequences of this are just that it won’t be grouped together with its c
 
 &lt;p&gt;Problem number one was to get the information out of the image with JavaScript.&lt;/p&gt;
 
-&lt;p&gt;I hadn’t a clue how this would happen or whether there’d even be an API for it but I had one if those googling eureka moments when I came across the technique of drawing an image to a canvas and interrogating the canvas for the information using &lt;code class=&quot;highlighter-rouge&quot;&gt;ctx.getImageData&lt;/code&gt; (&lt;a href=&quot;http://stackoverflow.com/a/17789253/1841845&quot;&gt;I think it was this StackOverflow answer&lt;/a&gt;). Neat.&lt;/p&gt;
+&lt;p&gt;I hadn’t a clue how this would happen or whether there’d even be an API for it but I had one if those googling eureka moments when I came across the technique of drawing an image to a canvas and interrogating the canvas for the information using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctx.getImageData&lt;/code&gt; (&lt;a href=&quot;http://stackoverflow.com/a/17789253/1841845&quot;&gt;I think it was this StackOverflow answer&lt;/a&gt;). Neat.&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
  * @param img
- * @returns {Array} array of integers representing the image,
+ * @returns {Array} array of integers representing the image, 
  * wherein each pixel is represented by a group of 4 numbers
  * between 0 and 255 corresponding to its rgba values
  */&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getImageData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;//Create a canvas in memory that we can use to get the pattern image data&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;naturalWidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;height&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;naturalHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//Create a canvas in memory that we can use to get the pattern image data&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;naturalWidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;height&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;naturalHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;2d&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;drawImage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getImageData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;naturalWidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;naturalHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;2d&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;drawImage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getImageData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;naturalWidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;naturalHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
 &lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;
 For example, when passed this &lt;em&gt;very&lt;/em&gt; small image 3 x 2 pixels in size:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/playing-with-image-data/tiny-image.png&quot; alt=&quot;image mucking&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/playing-with-image-data/tiny-image.png&quot; alt=&quot;image mucking&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;My &lt;code class=&quot;highlighter-rouge&quot;&gt;getImageData&lt;/code&gt; function returns the following array:&lt;/p&gt;
+&lt;p&gt;My &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getImageData&lt;/code&gt; function returns the following array:&lt;/p&gt;
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
 &lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;Broken down into pixels, we can see that each is represented by its 4-number rgba value&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+ &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-
 &lt;h4 id=&quot;translating-the-image-data&quot;&gt;Translating the image data&lt;/h4&gt;
 
 &lt;p&gt;I needed to turn this flat array of information into something meaningful and easy to use to recreate the image. All I really needed to know was which pixels were black and which were white, so I wrote this small function to take the results of the above and turn them into a flat array of 1s and 0s.&lt;/p&gt;
@@ -693,35 +698,29 @@ For example, when passed this &lt;em&gt;very&lt;/em&gt; small image 3 x 2 pixels
  * right. A value of 1 represents that the pixel is the dark colour and 0 that it is light
  */&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getPixelsOnOff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;imageData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;imageData&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imageData&lt;/span&gt;
 
-      &lt;span class=&quot;c1&quot;&gt;// only have to look at one colour channel to know if it's black or white, so just look at the red of each&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;// pixel, filtering the rest out&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// only have to look at one colour channel to know if it's black or white, so just look at the red of each&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// pixel, filtering the rest out&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-      &lt;span class=&quot;c1&quot;&gt;// if the value is greater than 127 (~half of the maximum of 255) it's light, else it's dark&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pixel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pixel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;127&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// if the value is greater than 127 (~half of the maximum of 255) it's light, else it's dark&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pixel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pixel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;127&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
 &lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;
-When passed the array resulting from the &lt;code class=&quot;highlighter-rouge&quot;&gt;getImageData&lt;/code&gt; function call above, the &lt;code class=&quot;highlighter-rouge&quot;&gt;getPixelsOnOff&lt;/code&gt; function returns this array:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[0,1,1,0,0,0]
+When passed the array resulting from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getImageData&lt;/code&gt; function call above, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getPixelsOnOff&lt;/code&gt; function returns this array:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[0,1,1,0,0,0]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
 &lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;The final step was to group the array into rows, all set to be visualised. As we know the image dimensions from the image itself, this part is trivial.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[
     [0,1,1],
     [0,0,0]
 ]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
 &lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;And there we have it! We now have an easy to read array of the on/off state of each pixel, grouped into rows, which we can use to redisplay the image in any way we choose. In my case this basically involved looping over the nested arrays and drawing squares on a canvas with the appropriate position and colour.&lt;/p&gt;
@@ -732,17 +731,17 @@ When passed the array resulting from the &lt;code class=&quot;highlighter-rouge&
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// if you squint you can almost see it&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;deep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;equal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
@@ -761,14 +760,12 @@ When passed the array resulting from the &lt;code class=&quot;highlighter-rouge&
 
 &lt;p&gt;If you’re pretty much on-board with the concept of knitting your own complex, non-repeating scarf design but aren’t sure what problem I’m trying to solve here, see &lt;a href=&quot;/2016/01/31/the-christmas-fam-scarf-part-2&quot;&gt;Part two: The actual knitting&lt;/a&gt;. The general gist is that once these pixel patterns reach a certain level of complexity they do become very hard to follow, which is exactly why I made this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/scarf-party-demo.gif&quot; alt=&quot;scarf party demo&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/scarf-party-demo.gif&quot; alt=&quot;scarf party demo&quot; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;use-the-app-for-your-own-pixel-pattern-scarfparty&quot;&gt;Use the app for your own pixel pattern: &lt;a href=&quot;https://static.lrnk.co.uk/scarfparty2/&quot;&gt;ScarfParty&lt;/a&gt;&lt;/h5&gt;
-
+&lt;h5 id=&quot;use-the-app-for-your-own-pixel-pattern-scarfparty&quot;&gt;Use the app for your own pixel pattern: &lt;a href=&quot;http://static.lrnk.co.uk/scarfparty2/&quot;&gt;ScarfParty&lt;/a&gt;&lt;/h5&gt;
 &lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;h5 id=&quot;check-out-the-code-githubcomlaurieboyesscarfparty-v2&quot;&gt;Check out the code: &lt;a href=&quot;https://github.com/laurieboyes/scarfparty-v2&quot;&gt;github.com/laurieboyes/scarfparty-v2&lt;/a&gt;&lt;/h5&gt;
-
 &lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;The grid is a dynamic display of the pattern that updates along with your progress. Each square in the grid represents a single stitch. Regardless of your position in the scarf or what side you’re on, the pattern is always read from right to left, and the stitches are always displayed in the colours you need to knit. This is achieved by flipping the colours and design at the end of each row, presenting the pattern similarly to in the demonstration at the end of &lt;a href=&quot;/2016/01/31/the-christmas-fam-scarf-part-2&quot;&gt;part 2 of this series&lt;/a&gt;.&lt;/p&gt;
@@ -836,7 +833,7 @@ When passed the array resulting from the &lt;code class=&quot;highlighter-rouge&
 
 &lt;p&gt;For no reason other than that I had some left over from a previous project and had knitted my test duck in it, I used &lt;strong&gt;aran/worsted weight wool&lt;/strong&gt; for my fam scarf. And, for no reason other than that my mum had lent me hers for another previous project, I used &lt;strong&gt;4.5mm aluminium needles&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/test-duck.jpg&quot; alt=&quot;test duck&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/test-duck.jpg&quot; alt=&quot;test duck&quot; /&gt;
 The aforementioned test duck.&lt;/p&gt;
 
 &lt;p&gt;I nipped out on my lunch break and got the wool for the final scarf from &lt;a href=&quot;http://www.loopknitting.com&quot;&gt;Loop&lt;/a&gt; in Islington, London. I ended up needing a bit less than &lt;strong&gt;eight 50g, 80 metre balls&lt;/strong&gt; (four of each colour).&lt;/p&gt;
@@ -852,7 +849,6 @@ The aforementioned test duck.&lt;/p&gt;
 &lt;p&gt;The technique I used to make the scarf lie flat and look scarfy on both sides is called &lt;strong&gt;double knitting&lt;/strong&gt; or &lt;strong&gt;double-sided knitting&lt;/strong&gt;. This basically involves knitting the two sides at the same time, knitting together the edges and borrowing colour from the other side for the design.&lt;/p&gt;
 
 &lt;h4 id=&quot;recommended-reading&quot;&gt;Recommended reading&lt;/h4&gt;
-
 &lt;p&gt;I had a go at making a video tutorial myself and it was just so awful. Happily, youTube is positively bustling with eager knitting tutors, and &lt;a href=&quot;https://www.youtube.com/watch?v=JroP84tUmJA&quot;&gt;this video by JoannesWeb&lt;/a&gt; absolutely smashes it. I actually learnt from a mishmash of various other videos and articles and only came across this one after my scarf was finished, but I think it’s the best video I’ve found. Highly recommended if you’re gearing up for your own double-sided scarf project.&lt;/p&gt;
 
 &lt;p&gt;From &lt;a href=&quot;https://youtu.be/JroP84tUmJA?t=9s&quot;&gt;0:09&lt;/a&gt; to 0:54 she does a very nice cast on.
@@ -860,44 +856,38 @@ From &lt;a href=&quot;https://youtu.be/JroP84tUmJA?t=56s&quot;&gt;0:56&lt;/a&gt;
 At &lt;a href=&quot;https://youtu.be/JroP84tUmJA?t=8m48s&quot;&gt;8:48&lt;/a&gt; she shows how to bring in colour from the other side for creating designs.&lt;/p&gt;
 
 &lt;h4 id=&quot;where-i-divergeexpand&quot;&gt;Where I diverge/expand&lt;/h4&gt;
-
 &lt;p&gt;There are a few things missing from the above video or things I did differently in the fam scarf that I wouldn’t want you to miss out on.&lt;/p&gt;
 
 &lt;h5 id=&quot;casting-on-for-your-pixel-pattern&quot;&gt;Casting on for your pixel pattern&lt;/h5&gt;
-
 &lt;p&gt;We want to cast on &lt;strong&gt;two more stitches than the width of our pattern&lt;/strong&gt;, giving us enough stitches to fulfil the pattern itself, and two for each edge. A cast on for a pattern 10 stitches wide might look like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/cast-on.jpg&quot; alt=&quot;cast on finished&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/cast-on.jpg&quot; alt=&quot;cast on finished&quot; /&gt;&lt;/p&gt;
 
 &lt;h5 id=&quot;alternative-edges&quot;&gt;Alternative edges&lt;/h5&gt;
-
 &lt;p&gt;In the video, she starts and ends each row by knitting the double stitch (the light and the dark together) and never with a purl.&lt;/p&gt;
 
 &lt;p&gt;I started off doing this and found it creates this sort of serrated edge on each side:
-&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/edge-a.jpg&quot; alt=&quot;cast on finished&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/edge-a.jpg&quot; alt=&quot;cast on finished&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;On the fam scarf, I went for a slightly different approach, which is less visible on one side but creates some nice v shapes on the other:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/edge-b2.jpg&quot; alt=&quot;cast on finished&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/edge-b2.jpg&quot; alt=&quot;cast on finished&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Of course, it’s down to personal preference, but if this edge style does appeal, achieving it is no more complicated. Simply knit together the edge stitches when the front side is facing you and purl them when the back side is facing you.&lt;/p&gt;
 
 &lt;p&gt;Another way of thinking about this is that you knit on the odd rows (the row counter starting at 1) and purl on the even ones.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/edges.png&quot; alt=&quot;L pattern A&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/edges.png&quot; alt=&quot;L pattern A&quot; /&gt;&lt;/p&gt;
 
 &lt;h5 id=&quot;changing-yarns&quot;&gt;Changing yarns&lt;/h5&gt;
-
 &lt;p&gt;Just to save you some panicked googling when one or both of your first balls of yarn run out, here’s &lt;a href=&quot;https://www.youtube.com/watch?v=FodIHGHYBnM&quot;&gt;a video from KnitFreedom&lt;/a&gt;, which taught me how to change my yarn.&lt;/p&gt;
 
 &lt;h5 id=&quot;the-cast-off&quot;&gt;The cast off&lt;/h5&gt;
-
 &lt;p&gt;I was pretty lazy with my cast off but it turned out fine. I just did a basic cast off, knitting the two stitches for each side together. So, following my cast-off approach for a ten-pixel-wide pattern, you’d cast off 12 stitches total. One for each of the edges, combining the yarns as per usual, and one for each pixel in the pattern, combining them to get both colours in the same stitch.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/cast-off.jpg&quot; alt=&quot;L pattern A&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/cast-off.jpg&quot; alt=&quot;L pattern A&quot; /&gt;&lt;/p&gt;
 
 &lt;h5 id=&quot;tidying-up-your-loose-ends&quot;&gt;Tidying up your loose ends&lt;/h5&gt;
-
 &lt;p&gt;Tidying up loose ends on a double knitted scarf is refreshingly easy. As we’ve sort of made a big, occasionally-connected pocket with our two sides, we can just use a tapestry needle to poke them into the middle. Magic.&lt;/p&gt;
 
 &lt;h3 id=&quot;following-the-pixel-pattern&quot;&gt;Following the pixel pattern&lt;/h3&gt;
@@ -911,21 +901,21 @@ At &lt;a href=&quot;https://youtu.be/JroP84tUmJA?t=8m48s&quot;&gt;8:48&lt;/a&gt;
 
 &lt;p&gt;Here’s our pattern, which I knocked up in Pinta. (see &lt;a href=&quot;/2015/12/24/the-christmas-fam-scarf-part-1&quot;&gt;part one&lt;/a&gt; for more detail on making pixel patterns). It’s 10x10 and I was originally intending it to be an L for Laurie, but, as you can see, it looks more like a learner driver plate.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/l-pattern.png&quot; alt=&quot;L pattern&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/l-pattern.png&quot; alt=&quot;L pattern&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Let’s surrender to the automotive theme and pretend we’re using white and red wool. The first two rows are just block colour and are therefore pretty simple. We can easily visualise them in our heads like this. Remember that on each row the colours are reversed:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/l-plate-a.png&quot; alt=&quot;L pattern A&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/l-plate-a.png&quot; alt=&quot;L pattern A&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;(Note that, as demonstrated in the tutorials linked above, when I say to knit a white stitch, I mean to knit a white stitch then purl a red one).&lt;/p&gt;
 
 &lt;p&gt;The third and fourth rows bring the beginnings of the design into our knitting, and again, without too great a feat of mental acrobatics, can be visualised as follows:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/l-plate-b.png&quot; alt=&quot;L pattern B&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/l-plate-b.png&quot; alt=&quot;L pattern B&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The fifth and sixth row get a bit more interesting, as these are the first rows that require us to think about reversing the design for the wrong side. Once again, done in your head, this might look like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/l-plate-c.png&quot; alt=&quot;L pattern C&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/l-plate-c.png&quot; alt=&quot;L pattern C&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;And that’s pretty much it! Obviously, rows seven and eight are identical to five and six respectively, and rows nine and ten mirror the first two. Cast it off, tidy in the ends, stick it on your toy car and admire a job well done.&lt;/p&gt;
 
@@ -933,14 +923,14 @@ At &lt;a href=&quot;https://youtu.be/JroP84tUmJA?t=8m48s&quot;&gt;8:48&lt;/a&gt;
 
 &lt;p&gt;For simple patterns, visualising this stuff mentally is easy enough. I got all the way through my test duck quite happily, and was even &lt;em&gt;just about&lt;/em&gt; smiling as I worked my way through my knitted QR code experiment:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/qr.jpg&quot; alt=&quot;L pattern A&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/qr.jpg&quot; alt=&quot;L pattern A&quot; /&gt;
 You’ll be surprised to learn that it didn’t work.&lt;/p&gt;
 
 &lt;p&gt;The first several rows of my first attempt at the fam scarf, however, were enough to convince me that I needed to rethink my approach to pattern following. With a complex pattern, it quickly becomes very hard to remember what row and stitch you were on, which colours you should be knitting, and which direction you’re following the pattern in.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Even more so&lt;/em&gt; when you’re on a phone you bought in 2011 for £150 sim-free (long story) and, no matter how far you try to zoom in, this is the best view of your pixel pattern you can get up in the pub:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/phone-pixel-pattern.png&quot; alt=&quot;pattern on phone&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/phone-pixel-pattern.png&quot; alt=&quot;pattern on phone&quot; /&gt;
 Oh god.&lt;/p&gt;
 
 &lt;p&gt;It’s for this reason that I invested time and enthusiasm in &lt;em&gt;ScarfParty&lt;/em&gt;, my pixel pattern tracking web app. You can read all about the app, how it was made, and how you can use it for your own double-sided scarf projects in &lt;a href=&quot;/2016/07/18/the-christmas-fam-scarf-part-3&quot;&gt;the next exciting chapter of the tale of the Christmas fam scarf&lt;/a&gt;.&lt;/p&gt;
@@ -954,7 +944,7 @@ Oh god.&lt;/p&gt;
         <guid isPermaLink="true">/2015/12/24/the-christmas-fam-scarf-part-1.html</guid>
         <description>&lt;p&gt;Ho ho ho! Merry Christmas everyone! It’s Christmas 2015 and my brother and his girlfriend are soon to unwrap what I hope is the most alarming yet heartwarming gift they’ve ever received: Their very own double-sided, two-colour Christmas fam scarf.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/famscarffinished.jpg&quot; alt=&quot;fam scarf in progress&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/famscarffinished.jpg&quot; alt=&quot;fam scarf in progress&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;whats-in-the-blog&quot;&gt;What’s in the blog&lt;/h3&gt;
 
@@ -970,20 +960,19 @@ Oh god.&lt;/p&gt;
 
 &lt;p&gt;Having undergone many iterations and complete rebirths from its first conception, here it is! Note that this image has been squished (see later), duplicated, and flipped for full effect.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/finalpattern.png&quot; alt=&quot;final pattern&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/finalpattern.png&quot; alt=&quot;final pattern&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;All members of the household, great and small, are represented here in loving detail. Each of the component images has been boiled down from a full-sized colour image using super easy colour manipulation. Each pixel represents a single stitch. Let’s go through an example, making a new pattern from scratch.&lt;/p&gt;
 
 &lt;h3 id=&quot;to-follow-this-tutorial-you-will-need-some-image-editing-software&quot;&gt;To follow this tutorial, you will need: Some image editing software&lt;/h3&gt;
 
-&lt;p&gt;I found (with my choices limited on my Ubuntu machine) I had to use a variety of different image editing software to achieve all the necessary bits. You can use whatever you like (unless you find yourself trapped on Ubuntu) but here’s what I ended up on.&lt;/p&gt;
+&lt;p&gt;I found (with my choices limited on my Ubuntu machine) I had to use a variety of different image editing software to achieve all the necessary bits. You can use whatever you like  (unless you find yourself trapped on Ubuntu) but here’s what I ended up on.&lt;/p&gt;
 
 &lt;p&gt;I used &lt;a href=&quot;http://pinta-project.com/&quot;&gt;Pinta&lt;/a&gt;, Linux’s answer to Paint.net, for most of the image editing. It’s currently in early development but it did most of the work nicely. I have noticed occasional bugs when I’m resizing images, and it’s a bit behind as far as certain tools like layer or selection rotating goes but, for most of it, it worked a treat.&lt;/p&gt;
 
 &lt;p&gt;I used &lt;a href=&quot;https://pixlr.com/editor/&quot;&gt;Pixlr Editor&lt;/a&gt; for assembling the image onto the scarf. I have to put aside a lot of prejudice when I discover something’s written in Flash, but this was the best thing I could find for filling the gaps in Pinta. Its brush tools are a bit laggy and its contrast function is a bit lightweight (this, as we will see, is a critical deficiency), but I was still pleased to find it.&lt;/p&gt;
 
 &lt;h3 id=&quot;specing-out-your-scarf&quot;&gt;Spec’ing out your scarf&lt;/h3&gt;
-
 &lt;p&gt;Before you start on your pattern, you need to think about how long and wide you want your scarf to be, and how many rows and stitches you need to achieve your desired dimensions. This will of course depend on your needles and your wool and all that. The great thing about this being a scarf is that it doesn’t matter hugely how accurate you are with this. So long as you come out with something long enough to stretch to the circumference of your neck, you’re laughing.&lt;/p&gt;
 
 &lt;p&gt;For the fam scarf, I did a bit of googling on what makes a good scarf size and found most of the results indicated that pretty much anything goes, but my mum told me she understood that a good scarf length was 150cm and I got the impression 20cm was a good width for a fairly wide scarf, which appealed to me because I knew that the wider the scarf, the more recognisable the images would turn out.&lt;/p&gt;
@@ -991,59 +980,58 @@ Oh god.&lt;/p&gt;
 &lt;p&gt;I used aran/worsted weight wool and 4.5mm needles. I wouldn’t necessarily follow this example if you think you’ve got a better idea, as my fam scarf is &lt;em&gt;heavy&lt;/em&gt;, but it’s certainly not a bad result. After making my little test duck (see &lt;a href=&quot;/2016/01/31/the-christmas-fam-scarf-part-2&quot;&gt;part two&lt;/a&gt;) I satisfied myself that my pattern wanted to be 30 stitches wide (not including the start and end stitches that form the border), and 300 rows long (again, not including the cast on and off). The final thing ended up being 21cm wide and 147cm high, so not too far wide of the mark.&lt;/p&gt;
 
 &lt;h3 id=&quot;are-you-right-there-father-ted&quot;&gt;Are you right there Father Ted?&lt;/h3&gt;
-
 &lt;p&gt;For the sake of variety I’ll make the example from a screen cap of ’90s sitcom &lt;a href=&quot;https://en.wikipedia.org/wiki/Father_Ted&quot;&gt;Father Ted&lt;/a&gt; that I hopefully won’t get in trouble for using.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted1.jpg&quot; alt=&quot;fatherted1&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted1.jpg&quot; alt=&quot;fatherted1&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;First, cut out his head so that we’re faced with just the image we’re going to drop into the scarf.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/tedcutout.JPG&quot; alt=&quot;tedcutout&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/tedcutout.JPG&quot; alt=&quot;tedcutout&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Once I realised what a good idea it was, I found it incredibly helpful to &lt;strong&gt;save a copy after each step&lt;/strong&gt;. This meant that I could go back and try branching off in different ways if I hit a dead end, instead of starting again from the original image every time.&lt;/p&gt;
 
 &lt;p&gt;So that we’ve got some definition to work with when we shrink it down, make it a true two-colour jobby by maxing out the contrast slider. Tweak the brightness until you get an image that looks promising (this is definitely more art than science).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/tedcontrast.jpg&quot; alt=&quot;tedcontrast&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/tedcontrast.jpg&quot; alt=&quot;tedcontrast&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Warning: Note that I’ve jumped into &lt;a href=&quot;http://www.getpaint.net/&quot;&gt;Paint.NET&lt;/a&gt; on my dad’s PC for this. Some image editors are a bit stingy with their contrast setting. For instance, if you were to attempt this step with Pixlr Editor you’d only get as far as this (unless I’m missing something).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted4.png&quot; alt=&quot;fatherted4&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted4.png&quot; alt=&quot;fatherted4&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Not good enough at all.&lt;/p&gt;
 
 &lt;p&gt;You also might notice that this step has caused us to lose our boundary between what’s Ted and what’s the background. For some images you’ll find that this problem doesn’t manifest, but for others like this one, you might want to go back a step and bolster the outline with a thick black paintbrush. It looks cartoony and strange while the image is still large, but you’ll find it helps later on.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/tedoutline.jpg&quot; alt=&quot;tedoutline&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/tedoutline.jpg&quot; alt=&quot;tedoutline&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;For best results, use an image which doesn’t necessitate much work in this step, i.e. one with a lot of high contrast edges around the subject.&lt;/p&gt;
 
 &lt;p&gt;Now, this is pretty crucial. As became apparent to me about 50 rows into my second attempt, we need to do some fiddling to correct our aspect ratio. I found that my stitches were only approximately 80% as high as they were wide, so simply pixelating an image and shrinking it down was not going to work out. Exhibit A:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/squished.jpg&quot; alt=&quot;squished&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/squished.jpg&quot; alt=&quot;squished&quot; /&gt;
 That’s not my brother.&lt;/p&gt;
 
 &lt;p&gt;So, we’ll stretch Ted vertically by something like a factor of 1.25. He’ll look weird now, but he’ll look great on the finished product. Remember to turn off ‘maintain aspect ratio’ on whatever tool you’re using to do this.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted7.png&quot; alt=&quot;fatherted7&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted7.png&quot; alt=&quot;fatherted7&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now it’s shrinking time. We know that we want him and a bit of padding to total 30 pixels wide. This will probably be another step that takes a bit of trial and error. Here’s what I ended up with in this example:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted8.png&quot; alt=&quot;fatherted8&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted8.png&quot; alt=&quot;fatherted8&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Nice! Looks great right? Well, it looks better because our sometimes friend anti-aliasing has brought in I don’t know how many shades of grey - doh! We now need to play with our brightness and contrast settings for a second time. This is the point at which I found myself throwing most of my failed attempts away, and it’s here that you’ll be most grateful that you remembered to save a copy of the image after each step. It’s tricky, but suspend judgement until zooming out and hopefully after a bit of trial and error you’ll find yourself with a winner. You might want to get the 1 pixel paintbrush tool out and patch up missing edge lines again once you’ve found a balance you like for the facial features.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted11.png&quot; alt=&quot;fatherted11&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted11.png&quot; alt=&quot;fatherted11&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Depending on how lucky you are with your image, you might be able to skip the high-contrasting step on the larger version of the image and just to it straight on the small one. I found it easier though to high contrast on the large one, patch up any missing lines from there, then shrink and repeat the process.&lt;/p&gt;
 
 &lt;p&gt;So there it is! You’ve got yourself a completely unique, highly personalised scarf motif. Copy these onto an image that’s the same height and width in pixels as the number of stitches and rows you worked out you need earlier for the entire scarf and call it a pattern.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted18.png&quot; alt=&quot;fatherted18&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted18.png&quot; alt=&quot;fatherted18&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;And here’s what it looks like with the aspect ratio stretching reversed, giving you a better idea of what it’ll look like on the scarf itself.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted17.png&quot; alt=&quot;fatherted17&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/fatherted17.png&quot; alt=&quot;fatherted17&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Magnificent.&lt;/p&gt;
 
@@ -1052,29 +1040,27 @@ That’s not my brother.&lt;/p&gt;
 &lt;p&gt;Here’s a bit more info on some of the flourishes that went into the fam scarf.&lt;/p&gt;
 
 &lt;h4 id=&quot;the-stripy-background&quot;&gt;The stripy background&lt;/h4&gt;
-
 &lt;p&gt;I’m ashamed to say that I can’t for the life of me remember where I found the repeating stripy zigzag pattern that made up the background for the fam scarf. If you recognise it as yours, tweet me and I’ll credit you!&lt;/p&gt;
 
 &lt;p&gt;I really like the way a repeating pattern like this draws the scarf into something more than just a creepy showcase of floating heads. I’m sure lots of things would work, but the stripe pattern was the first thing I tried and it ticked all the boxes for me. I found the easiest way to work with this in the pattern was as follows.&lt;/p&gt;
 
 &lt;p&gt;First, create a layer which is entirely covered by the repeating pattern. For me this involved a bit of manual pixel painting then a lot of copying and pasting.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/zigzags1.png&quot; alt=&quot;zigzags1&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/zigzags1.png&quot; alt=&quot;zigzags1&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Make another layer on top that is completely black. This will help us judge our border around our face.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/zigzags2.png&quot; alt=&quot;zigzags2&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/zigzags2.png&quot; alt=&quot;zigzags2&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Paste in the face, and carve away at the background with the eraser to give it a nice border. This is made easier by the black background. Note that ideally you need an image editor with a hard-edged eraser for this (Paint.NET has let me down here, but Pixlr Editor and Pinta do the trick). Hide the black layer for the end result.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/zigzags6.png&quot; alt=&quot;zigzags6&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/zigzags6.png&quot; alt=&quot;zigzags6&quot; /&gt;
 Superb.&lt;/p&gt;
 
 &lt;h4 id=&quot;adding-text&quot;&gt;Adding text&lt;/h4&gt;
-
 &lt;p&gt;I only thought to add text to my scarf on my third and final attempt (my second attempt having been abandoned for unrelated reasons given above) and never have I found a more brilliant silver lining. I like the way it adds variety and I like its ability to remove all doubt about who your picture is supposed to represent. The sad thing is that it sort of takes further away from the reverse side of your finished product, as nothing says ‘Don’t look at this side’ like backwards text. It’s not a huge loss though, as I found the reverse side looks a bit weird anyway.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/christmas-fam-scarf/reverse.jpg&quot; alt=&quot;reverse&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/christmas-fam-scarf/reverse.jpg&quot; alt=&quot;reverse&quot; /&gt;
 Trippy.&lt;/p&gt;
 
 &lt;p&gt;I got the font from &lt;a href=&quot;http://www.dafont.com/smallest-pixel-7.font&quot;&gt;dafont.com&lt;/a&gt; and hopefully I won’t get in trouble for using that either. I found that the easiest way to actually bring it into the pattern was to pencil it in manually, pixel by pixel.&lt;/p&gt;
@@ -1092,28 +1078,27 @@ Trippy.&lt;/p&gt;
         <guid isPermaLink="true">/2015/12/23/self-esteem-snake.html</guid>
         <description>&lt;p&gt;In August 2013 I embarked on another new game project in my then-favourite language Java. Heartened by the knowledge that everyone loves a good classic game clone, I decide to write my own rendition of &lt;a href=&quot;https://en.wikipedia.org/wiki/Snake_(video_game)&quot;&gt;Snake&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/lrnksnake.gif&quot; alt=&quot;lrnk snake&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/lrnksnake.gif&quot; alt=&quot;lrnk snake&quot; /&gt;&lt;/p&gt;
 
 &lt;h5 id=&quot;download-the-game-selfesteemsnake-11-betajar&quot;&gt;Download the game: &lt;a href=&quot;https://github.com/laurieboyes/self-esteem-snake/releases/download/v1.1-beta/SelfEsteemSnake-1.1-beta.jar&quot;&gt;SelfEsteemSnake-1.1-beta.jar&lt;/a&gt;&lt;/h5&gt;
-
 &lt;p&gt;&lt;em&gt;Menu - arrow keys to select, return to confirm&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;Game - arrow keys to move, p to pause&lt;/em&gt;&lt;/p&gt;
 
 &lt;h5 id=&quot;view-the-code-githubcomlaurieboyesself-esteem-snake&quot;&gt;View the code: &lt;a href=&quot;https://github.com/laurieboyes/self-esteem-snake&quot;&gt;github.com/laurieboyes/self-esteem-snake&lt;/a&gt;&lt;/h5&gt;
-
 &lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;As well as giving me one more shiny thing to put on my personal website, this project was contrived to help me learn &lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt; (imagine the mess in a world without Git!) and to take a small chip out of the looming monolith that was my &lt;a href=&quot;https://en.wikipedia.org/wiki/Impostor_syndrome&quot;&gt;imposter syndrome&lt;/a&gt; by finally giving me a solid, first-hand understanding of working with &lt;a href=&quot;https://en.wikipedia.org/wiki/Test-driven_development&quot;&gt;Test-driven Development&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;I decided that the art style should be entirely text based and had a lot of fun with that, not limited to learning some things about when and how one should bundle fonts in jars. A massive bonus this decision gave me was being able to very clearly log the state of the game to the console when debugging. It was also thanks to this decision that I had the idea for the alternative game mode, &lt;strong&gt;Bookworm&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/lrnksnake-bookworm.gif&quot; alt=&quot;bookworm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/lrnksnake-bookworm.gif&quot; alt=&quot;bookworm&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;As you can see, it’s basically snake again, but you collect letters of an article. The game downloads a random article from wikipedia and uses that to form the &lt;em&gt;food string&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;There must have been a reason for me not using the MediaWiki API because I remember looking into it, but I’m quite pleased I didn’t because this provided with with my first real exposure to web scraping using &lt;a href=&quot;http://jsoup.org/&quot;&gt;jsoup&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;All sorts of fun.&lt;/p&gt;
+
 </description>
         <pubDate>Wed, 23 Dec 2015 23:22:00 +0000</pubDate>
       </item>
@@ -1124,18 +1109,17 @@ Trippy.&lt;/p&gt;
         <guid isPermaLink="true">/2015/12/20/little-green-men.html</guid>
         <description>&lt;p&gt;In June 2012 I’d just finished my degree and, having not yet given up hope of taking the indie gaming scene by storm, embarked on another game project. I decided I’d write a platform game, and that I’d write it using JavaScript and HTML5 canvas.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/littlegreenmen-walkshoot.gif&quot; alt=&quot;lrnce tetris&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/littlegreenmen-walkshoot.gif&quot; alt=&quot;lrnce tetris&quot; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;play-the-game-little-green-men&quot;&gt;Play the game: &lt;a href=&quot;https://static.lrnk.co.uk/littlegreenmen&quot;&gt;Little Green Men&lt;/a&gt;&lt;/h5&gt;
-
+&lt;h5 id=&quot;play-the-game-little-green-men&quot;&gt;Play the game: &lt;a href=&quot;http://static.lrnk.co.uk/littlegreenmen&quot;&gt;Little Green Men&lt;/a&gt;&lt;/h5&gt;
 &lt;p&gt;&lt;em&gt;Move/Jump: wasd&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;Shoot: l&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;Pause: p&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;Mute sound: m&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Little Green Men never really fully materialised as a game, but it did come to be a small demo-like app in which a little space man struts, shoots, and rocket-jumps his way around a series of eerie floating numbered blocks, until the player falls off the block and has to refresh the page to end the space man’s torment as he hurtles though endless cyberspace at terminal velocity for the rest of time (or until his y coordinate reaches &lt;code class=&quot;highlighter-rouge&quot;&gt;Number.MAX_VALUE&lt;/code&gt; and everything breaks).&lt;/p&gt;
+&lt;p&gt;Little Green Men never really fully materialised as a game, but it did come to be a small demo-like app in which a little space man struts, shoots, and rocket-jumps his way around a series of eerie floating numbered blocks, until the player falls off the block and has to refresh the page to end the space man’s torment as he hurtles though endless cyberspace at terminal velocity for the rest of time (or until his y coordinate reaches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Number.MAX_VALUE&lt;/code&gt; and everything breaks).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/littlegreenmen-jump.gif&quot; alt=&quot;lrnce tetris&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/littlegreenmen-jump.gif&quot; alt=&quot;lrnce tetris&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I made this game long before I was introduced to the concept of uglification, so, if you’re interested, you can check out the code by viewing the source (you can be damned sure I’m not going to have it sullying my github profile). This was really my JavaScript debut. I’d chosen it partly to learn more about the language all the cool kids were talking about, and perhaps more significantly because having it run within a browser made it much easier to show off.&lt;/p&gt;
 
@@ -1150,39 +1134,22 @@ Trippy.&lt;/p&gt;
         <guid isPermaLink="true">/2015/11/24/tetris-for-egotistical-java-fledglings.html</guid>
         <description>&lt;p&gt;&lt;em&gt;LrnceTetris&lt;/em&gt; is a game I wrote in April 2010, just at the tail end of the second year of my Comp Sci degree (an explanation of the name ‘Lrnce’ and its derivatives is a whole other blog post). It’s not the first in its category of did-all-the-fun-stuff-then-got-bored hobby coding projects I’ve worked on over the years but it is the first I’m willing to exhibit with only a slight accompanying cringe.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/lrncetetris.gif&quot; alt=&quot;lrnce tetris&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/lrncetetris.gif&quot; alt=&quot;lrnce tetris&quot; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;download-the-game-lrncetetrisjar&quot;&gt;Download the game: &lt;a href=&quot;https://static.lrnk.co.uk/LrnceTetris.jar&quot;&gt;LrnceTetris.jar&lt;/a&gt;&lt;/h5&gt;
-
+&lt;h5 id=&quot;download-the-game-lrncetetrisjar&quot;&gt;Download the game: &lt;a href=&quot;http://static.lrnk.co.uk/LrnceTetris.jar&quot;&gt;LrnceTetris.jar&lt;/a&gt;&lt;/h5&gt;
 &lt;p&gt;&lt;span class=&quot;paragraph-space-forcer&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;The premise of the game is… Tetris! Of course. It’s a Tetris clone. What budding games programmer hasn’t seen appeal in Tetris’s simple action, it’s easy art, it’s instant familiarity. There’s something about creating your own version of a game you’ve previously consumed with unblinking glee that really makes a project exciting.&lt;/p&gt;
 
 &lt;p&gt;The main USP of this particular incarnation is the degree of graphical flair. The board is framed by a picture of me, gazing more or less in the direction of the player and wearing a strikingly neutral expression. Each block has a picture of one of my school friends on, and I was pretty proud of the end-game animation too.&lt;/p&gt;
 
-&lt;p&gt;I decompiled the .jar thinking the five-year-old code within would be positively &lt;em&gt;hilarious&lt;/em&gt; (If you’re into that sort of thing), but found that in reality it was just long and boring. All &lt;code class=&quot;highlighter-rouge&quot;&gt;swing.Timer&lt;/code&gt; this and &lt;code class=&quot;highlighter-rouge&quot;&gt;extends JPanel&lt;/code&gt; that. Nevertheless, it was a nice trip down memory lane.&lt;/p&gt;
+&lt;p&gt;I decompiled the .jar thinking the five-year-old code within would be positively &lt;em&gt;hilarious&lt;/em&gt; (If you’re into that sort of thing), but found that in reality it was just long and boring. All &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;swing.Timer&lt;/code&gt; this and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;extends JPanel&lt;/code&gt; that. Nevertheless, it was a nice trip down memory lane.&lt;/p&gt;
 
 &lt;p&gt;Bonus content: The gif Google Photos made of all of my frame images. I vaguely recall having plans to have my face react when certain game events took place. Sadly, this dream was never realised, but at least we retain this small momento&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://static.lrnk.co.uk/blog-content/lrnce-tetris-frame-images.gif&quot; alt=&quot;lrnce tetris frame images&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.lrnk.co.uk/blog-content/lrnce-tetris-frame-images.gif&quot; alt=&quot;lrnce tetris frame images&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 24 Nov 2015 00:01:37 +0000</pubDate>
-      </item>
-    
-      <item>
-        <title>My new blog</title>
-        <link>/2015/11/19/my-new-blog.html</link>
-        <guid isPermaLink="true">/2015/11/19/my-new-blog.html</guid>
-        <description>&lt;p&gt;Welcome to my first post!&lt;/p&gt;
-
-&lt;p&gt;I’ve made a decision to rework my personal website into a blog format, moving away from the old bullet-pointed-list-in-a-bootstrap-template style into a much more palatable experience for all.&lt;/p&gt;
-
-&lt;p&gt;I intend to use this space to showcase and write up on hobby projects I embark on. Some of them will involve coding and some of them will involve knitting. The best ones might even touch on both.&lt;/p&gt;
-
-&lt;p&gt;Cheers!
-Laurie&lt;/p&gt;
-</description>
-        <pubDate>Thu, 19 Nov 2015 20:02:54 +0000</pubDate>
       </item>
     
   </channel>

@@ -73,6 +73,8 @@
 			
 			
 			
+			
+			
 			<!-- Social icons from Font Awesome, if enabled  -->
 			
 
@@ -278,14 +280,14 @@ I <em>love</em> it when I find a good reason to use regular expressions (thanks 
 
 <p>Sick formula number 1: Retrieve the value of the checkbox on the meals sheet to copy it onto the ingredients sheet (for slightly easier Google Sheets API querying)</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=VLOOKUP(G1, INDIRECT("The other spreadsheet!A:B"), 2)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=VLOOKUP(G1, INDIRECT("The other spreadsheet!A:B"), 2)
 </code></pre></div></div>
 
 <p><img src="/assets/img/yummy-spreadsheets/checkbox-copy-formula.gif" alt="checkbox-copy-formula" class="edgeless-image" /></p>
 
 <p>Sick formula number 2: Conditional formatting to indicate if a selected recipe doesn’t have an entry in the ingredients sheet:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=AND(B1 = TRUE,COUNTIF(INDIRECT("'Ingredients'!1:1"),A1) &lt;= 0)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=AND(B1 = TRUE,COUNTIF(INDIRECT("'Ingredients'!1:1"),A1) &lt;= 0)
 </code></pre></div></div>
 
 <p><img src="/assets/img/yummy-spreadsheets/no-ingreeds-formula.png" alt="no-ingreeds-formula" class="edgeless-image" />
@@ -293,7 +295,7 @@ Red means <em>danger</em>.</p>
 
 <p>Sick formula number 3: Conditional formatting to indicate when an ingredient doesn’t have a category defined on the Ingredient types sheet:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=AND(NOT(ISBLANK(H4)),COUNTIF(INDIRECT("'Ingredient types'!A:A"),RIGHT(H4,LEN(H4) - FIND(" ", H4))) &lt;= 0)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=AND(NOT(ISBLANK(H4)),COUNTIF(INDIRECT("'Ingredient types'!A:A"),RIGHT(H4,LEN(H4) - FIND(" ", H4))) &lt;= 0)
 </code></pre></div></div>
 
 <p><img src="/assets/img/yummy-spreadsheets/no-type-formula.png" alt="no-type-formula" class="edgeless-image" />
@@ -323,7 +325,7 @@ The consequences of this are just that it won’t be grouped together with its c
 
 <p>A big part of this is <a href="https://serverless.com/framework/docs/getting-started/">the Serverless framework</a>, which is a properly good framework for deploying cloud functions and configuring event sources such as API Gateways and time schedules with super easy config. I’m not exaggerating. I love it.</p>
 
-<p>AWS Lambda got even better in April 2018 (shortly before I wrote this system) when it started allowing you to run stuff in Node 8.10, opening the door to my new favourite syntactic sweeties, <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code>, which made for some very neat promise-based asynchronous code.</p>
+<p>AWS Lambda got even better in April 2018 (shortly before I wrote this system) when it started allowing you to run stuff in Node 8.10, opening the door to my new favourite syntactic sweeties, <code class="language-plaintext highlighter-rouge">async</code> and <code class="language-plaintext highlighter-rouge">await</code>, which made for some very neat promise-based asynchronous code.</p>
 
 <h4 id="the-google-sheets-rest-api">The Google Sheets REST API</h4>
 
@@ -370,7 +372,7 @@ The consequences of this are just that it won’t be grouped together with its c
 
 
 <footer class="site-footer">
-	<p class="text">Laurie Boyes codes and sometimes knits © 2020. Powered by <a href="https://jekyllrb.com/">Jekyll</a> and adapted from <a href="https://github.com/rohanchandra/type-theme">Type Theme</a>
+	<p class="text">Laurie Boyes codes and sometimes knits © 2021. Powered by <a href="https://jekyllrb.com/">Jekyll</a> and adapted from <a href="https://github.com/rohanchandra/type-theme">Type Theme</a>
 </p>
 </footer>
 
